@@ -156,3 +156,36 @@ body {
     font-size: 20px;
     font-weight: 500;
 }
+
+.item{
+    overflow: hidden;
+}
+
+.card-body{
+    top:0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(29, 33, 19,0.5);
+    backdrop-filter: blur(2px);
+    color: #e4dada;
+    font-family: "Poiret One",
+        serif;
+    font-weight: 500;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+transition: 0.5s;
+
+}
+
+.item:hover .card-body{
+    right: 0;
+}
+
+.card-topic{
+    font-size: 30px;
+    font-weight: 600;
+}
