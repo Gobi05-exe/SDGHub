@@ -5,36 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partnership for the Goals</title>
-    <link rel="stylesheet" href="goal17.css">
+    <link rel="stylesheet" href="goal17b.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
-    <!-- add bottom border for nav bar and set as fixed-->
     <nav>
-        <!-- move the main class tag to the left of the page -->
         <ul>
-            <li class="main"><a href="goal17.html">SDGHub</a></li>
+            <li class="main"><a href="goal17.html"><span
+                        style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
         </ul>
-        <!-- mov the other_resources div to the right of the page -->
-        <div>
-            <ul class="other_resources">
-                <li><a>Join Us</a></li>
-                <li><a>Explore</a></li>
-                <li><a>Sign Up</a></li>
+        <div class="other_resources">
+            <ul class="links">
+                <li class="join"><a href="#">Join Us</a></li>
+                <li><a href="#" class="explore">Explore</a></li>
+                <li><a href="#">Sign Up</a></li>
             </ul>
         </div>
     </nav>
 
-    <video autoplay loop muted src="1448735-uhd_2732_1440_24fps.mp4"></video>
-    <div class="overvid">
-        <h1>Impowering Partnership for a Sustainable Future</h1>
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="1448735-uhd_2732_1440_24fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overvid">
+            <p class="ccc"><span>Connect. Collaborate. Create Impact.</p>
+            <h1 class="text"><span class="firstline"><span style="font-family: 'Fleur De Leah', serif; font-size: 120px; font-weight: 400;">E</span>mpowering Partnership</span> for a Sustainable Future</h1>
+        </div>
     </div>
 
+
+
+    <div class="content">
+        <div class="container">
+            <div class="intro">
+
+                
+            </div>
+
+
+
+        </div>
+
+
+
+
+        
+    </div>
+
+    <script>
+        ScrollReveal({
+            reset: true,
+            distance: '60px',
+            duration: 2500,
+            delay: 400
+        });
+
+        ScrollReveal().reveal('.text',{delay:300,origin:'left'})
+        ScrollReveal().reveal('.ccc', { delay: 500, origin: 'right' })
+
+        
+    </script>
 </body>
 
 </html>
