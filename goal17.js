@@ -11,3 +11,29 @@ document.addEventListener("scroll", function () {
         content.classList.remove("overlap");
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".carousel-track");
+    const boxes = document.querySelectorAll(".carousel-box");
+
+    // Clone elements to create a seamless infinite loop
+    boxes.forEach((box) => {
+        let clone = box.cloneNode(true);
+        track.appendChild(clone);
+    });
+});
+
+document.querySelectorAll('.nav-btn').forEach(button => {
+    button.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default anchor behavior
+        const targetId = this.getAttribute('href'); // Get the target section's ID
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth', // Smooth scrolling
+                block: 'start' // Align to the start of the section
+            });
+        }
+    });
+});
+
