@@ -54,6 +54,7 @@ html {
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
 }
 
 .nav-btn:hover {
@@ -117,7 +118,6 @@ html {
 
 .carousel-box {
     width: 230px;
-    /* Equal width for all boxes */
     height: 220px;
     padding: 25px;
     background: #f5f5d3;
@@ -130,13 +130,13 @@ html {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Hover effect */
+
 .carousel-box:hover {
     transform: scale(1.1);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Infinite scrolling animation */
+
 @keyframes scrollCarousel {
     0% {
         transform: translateX(0);
@@ -144,20 +144,20 @@ html {
 
     100% {
         transform: translateX(-50%);
-        /* Moves half of the track to create an infinite loop */
+        
     }
 }
 
-/* Stops scrolling when hovered */
+
 .carousel:hover .carousel-track {
     animation-play-state: paused;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .carousel {
         width: 90%;
-        /* Adjust width for smaller screens */
+       
     }
 
     .carousel-box {
@@ -165,7 +165,6 @@ html {
         height: 180px;
     }
 }
-
 
 .partnership-form-section {
     display: flex;
@@ -177,13 +176,16 @@ html {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 600px;
+    width: 100%;
     margin: 50px auto;
+    box-sizing: border-box;
 }
 
 .form-title {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .partnership-form {
@@ -191,6 +193,8 @@ html {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .form-group {
@@ -207,11 +211,15 @@ html {
 .form-group select,
 .form-group textarea {
     width: 100%;
+    max-width: 100%;
     padding: 12px;
     font-size: 1rem;
     border: 2px solid #ddd;
     border-radius: 8px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    background: #fff;
+    color: #333;
 }
 
 .form-group input:focus,
@@ -232,6 +240,8 @@ html {
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    text-align: center;
 }
 
 .form-submit-btn:hover {
