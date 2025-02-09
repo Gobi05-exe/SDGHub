@@ -298,12 +298,13 @@ a {
 
 .other_resources .links li a:hover:before {
     width: 100%;
-}.container {
+}
+.container {
     display: flex;
-    max-width: 1400px; /* Increased max width for a wider layout */
+    max-width: 1400px; 
     width: 100%;
-    padding: 40px; /* Increased padding for breathing space */
-    gap: 50px; /* Increased gap between sections */
+    padding: 40px; 
+    gap: 50px;
     flex-wrap: wrap;
 }
 
@@ -325,25 +326,25 @@ a {
 }
 
 .left-section .icon {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
 }
 
 .left-section h1 {
-    font-size: 28px; /* Slightly reduced font size */
+    font-size: 28px; 
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #fff;
 }
 
 .right-section {
-    flex: 2.5; /* Increased flex value for a wider form */
-    background-color: #f5f5d3; /* Light yellow background */
-    border-radius: 12px; /* Rounded corners */
-    padding: 40px; /* Increased padding for better spacing */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
-    max-width: 800px; /* Wider form */
-    margin: auto; /* Center the form */
+    flex: 2.5;
+    background-color: #f5f5d3; 
+    border-radius: 12px; 
+    padding: 40px; 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); 
+    max-width: 800px; 
+    margin: auto; 
 }
 
 .contact-form {
@@ -353,33 +354,33 @@ a {
 }
 
 .contact-form .form-group label {
-    font-size: 16px; /* Slightly larger font size */
+    font-size: 16px; 
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 input, select, textarea {
-    width: calc(100% - 10px); /* Adjusted width for better alignment */
-    padding: 12px; /* Increased padding for inputs */
-    font-size: 16px; /* Larger font size for readability */
-    background-color: #fff; /* White input fields */
-    border-radius: 6px; /* Softer rounded edges for inputs */
-    border: none; /* No border around inputs */
+    width: calc(100% - 10px);
+    padding: 12px; 
+    font-size: 16px; 
+    background-color: #fff; 
+    border-radius: 6px; 
+    border: none; 
     
 }
 
 input::placeholder, textarea::placeholder {
-    color: #aaa; /* Light gray placeholder text */
-    border-bottom: 2px solid #798262; /* Subtle bottom border for emphasis */
+    color: #aaa;
+    border-bottom: 2px solid #798262; 
 }
 
 input:hover, select:hover, textarea:hover {
-    background-color: #f9f9f9; /* Subtle hover effect on inputs */
+    background-color: #f9f9f9; 
 }
 
 
 textarea {
-    resize: none; /* Disable resizing of the textarea */
+    resize: none; 
 }
 
 button {
