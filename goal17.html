@@ -43,30 +43,131 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
     <div class="content">
         <div class="intro">
             <div class="text-container">
                 <p id="purpose">Our purpose</p>
                 <p class="content-intro">
-                    Sustainable development cannot be achieved without strong global partnerships and cooperation. Goal 17
-                    of the United Nations' Sustainable Development Goals (SDGs) emphasizes the importance of collaboration
+                    Sustainable development cannot be achieved without strong global partnerships and cooperation. Goal
+                    17
+                    of the United Nations' Sustainable Development Goals (SDGs) emphasizes the importance of
+                    collaboration
                     between governments, the private sector, and civil society to drive meaningful change. It focuses on
                     strengthening financial resources, technology exchange, capacity-building, and trade while promoting
-                    policy coherence and multi-stakeholder partnerships. By fostering inclusive and sustainable alliances,
-                    we can bridge gaps, share knowledge, and accelerate progress toward a better, more equitable future for
+                    policy coherence and multi-stakeholder partnerships. By fostering inclusive and sustainable
+                    alliances,
+                    we can bridge gaps, share knowledge, and accelerate progress toward a better, more equitable future
+                    for
                     all. Join us in building a world where unity and innovation create lasting impact!<br>
                     <a href="#">&#8599; Explore our projects</a>
                 </p>
             </div>
             <img class="hands" src="hands.webp" alt="Hands coming together">
-            
+
+        </div>
+    </div>
+
+
+    <div class="slider">
+        <!-- list Items -->
+        <div class="list">
+            <div class="item active">
+                <img src="deforestation.jpg">
+                <div class="content1">
+                    <p>Targets</p>
+                    <h2>Slider 01</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="ocean.jpg">
+                <div class="content1">
+                    <p>Targets</p>
+                    <h2>Slider 02</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="solar.jpg">
+                <div class="content1">
+                    <p>Targets</p>
+                    <h2>Slider 03</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="susdev.jpg">
+                <div class="content1">
+                    <p>Targets</p>
+                    <h2>Slider 04</h2>
+                    <p>
+                        Mobilizing financial resources to help developing countries invest in sustainable forest
+                        management.<br>
+                        <a class="links-of-organisations" target="_blank" href="//www.un-redd.org/">&#8599; UN-REDD</a>
+                    </p>
+
+                </div>
+            </div>
+            <div class="item">
+                <img src="climatechange.jpg">
+                <div class="content1">
+                    <p>Targets</p>
+                    <h2>Climate Finance</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- button arrows -->
+        <div class="arrows">
+            <button id="prev">&#8592;</button>
+            <button id="next">&#8594;</button>
+        </div>
+        <!-- thumbnail -->
+        <div class="thumbnail">
+            <div class="item active">
+                <img src="deforestation.jpg">
+                <div class="content1">
+                    Deforestation
+                </div>
+            </div>
+            <div class="item">
+                <img src="ocean.jpg">
+                <div class="content1">
+                    Ocean Protection
+                </div>
+            </div>
+            <div class="item">
+                <img src="solar.jpg">
+                <div class="content1">
+                    Renewable Energy
+                </div>
+            </div>
+            <div class="item">
+                <img src="susdev.jpg">
+                <div class="content1">
+                    Sustainable Development
+                </div>
+            </div>
+            <div class="item">
+                <img src="climatechange.jpg">
+                <div class="content1">
+                    Climate Finance
+                </div>
+            </div>
         </div>
     </div>
 
@@ -78,10 +179,71 @@
 
 
 
-
-
-
     <script>
+        let items = document.querySelectorAll('.slider .list .item');
+        let next = document.getElementById('next');
+        let prev = document.getElementById('prev');
+        let thumbnails = document.querySelectorAll('.thumbnail .item');
+
+        // config param
+        let countItem = items.length;
+        let itemActive = 0;
+        // event next click
+        next.onclick = function () {
+            itemActive = itemActive + 1;
+            if (itemActive >= countItem) {
+                itemActive = 0;
+            }
+            showSlider();
+        }
+        //event prev click
+        prev.onclick = function () {
+            itemActive = itemActive - 1;
+            if (itemActive < 0) {
+                itemActive = countItem - 1;
+            }
+            showSlider();
+        }
+        // auto run slider
+        let refreshInterval = setInterval(() => {
+            next.click();
+        }, 5000)
+        function showSlider() {
+            // remove item active old
+            let itemActiveOld = document.querySelector('.slider .list .item.active');
+            let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+            itemActiveOld.classList.remove('active');
+            thumbnailActiveOld.classList.remove('active');
+
+            // active new item
+            items[itemActive].classList.add('active');
+            thumbnails[itemActive].classList.add('active');
+            setPositionThumbnail();
+
+            // clear auto time run slider
+            clearInterval(refreshInterval);
+            refreshInterval = setInterval(() => {
+                next.click();
+            }, 5000)
+        }
+        function setPositionThumbnail() {
+            let thumbnailActive = document.querySelector('.thumbnail .item.active');
+            let rect = thumbnailActive.getBoundingClientRect();
+            if (rect.left < 0 || rect.right > window.innerWidth) {
+                thumbnailActive.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+            }
+        }
+
+        // click thumbnail
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                itemActive = index;
+                showSlider();
+            })
+        })
+
+
+
         ScrollReveal({
             reset: true,
             distance: '60px',
