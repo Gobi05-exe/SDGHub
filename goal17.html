@@ -17,6 +17,7 @@
 <body>
     <nav>
         <ul>
+            <li><img id="icon" src="leaf.png"></li>
             <li class="main"><a href="goal17.html"><span
                         style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
         </ul>
@@ -36,28 +37,49 @@
         </video>
         <div class="overvid">
             <p class="ccc"><span>Connect. Collaborate. Create Impact.</p>
-            <h1 class="text"><span class="firstline"><span style="font-family: 'Fleur De Leah', serif; font-size: 120px; font-weight: 400;">E</span>mpowering Partnership</span> for a Sustainable Future</h1>
+            <h1 class="text"><span class="firstline"><span
+                        style="font-family: 'Fleur De Leah', serif; font-size: 120px; font-weight: 400;">E</span>mpowering
+                    Partnership</span> for a Sustainable Future</h1>
         </div>
     </div>
+
+
+
+
+
 
 
 
     <div class="content">
-        <div class="container">
-            <div class="intro">
-
-                
+        <div class="intro">
+            <div class="text-container">
+                <p id="purpose">Our purpose</p>
+                <p class="content-intro">
+                    Sustainable development cannot be achieved without strong global partnerships and cooperation. Goal 17
+                    of the United Nations' Sustainable Development Goals (SDGs) emphasizes the importance of collaboration
+                    between governments, the private sector, and civil society to drive meaningful change. It focuses on
+                    strengthening financial resources, technology exchange, capacity-building, and trade while promoting
+                    policy coherence and multi-stakeholder partnerships. By fostering inclusive and sustainable alliances,
+                    we can bridge gaps, share knowledge, and accelerate progress toward a better, more equitable future for
+                    all. Join us in building a world where unity and innovation create lasting impact!<br>
+                    <a href="#">&#8599; Explore our projects</a>
+                </p>
             </div>
-
-
-
+            <img class="hands" src="hands.webp" alt="Hands coming together">
+            
         </div>
-
-
-
-
-        
     </div>
+
+
+
+
+
+
+
+
+
+
+
 
     <script>
         ScrollReveal({
@@ -67,10 +89,12 @@
             delay: 400
         });
 
-        ScrollReveal().reveal('.text',{delay:300,origin:'left'})
-        ScrollReveal().reveal('.ccc', { delay: 500, origin: 'right' })
+        ScrollReveal().reveal('.text, #purpose', { delay: 200, origin: 'left' })
+        ScrollReveal().reveal('.ccc, .hands', { delay: 300, origin: 'right' })
+        ScrollReveal().reveal('.content-intro', { delay: 200, origin: 'bottom' })
 
-        
+
+
     </script>
 </body>
 
