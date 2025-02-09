@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import EmailMessage
@@ -9,9 +8,6 @@ from django.utils import timezone
 from django.urls import reverse
 from .models import *
 
-@login_required
-def Home(request):
-    return render(request, 'index.html')
 
 def RegisterView(request):
     
@@ -45,10 +41,10 @@ def RegisterView(request):
                 password = password
             )
             messages.success(request, 'Account created. Login now')
-            return redirect('login')
+            return redirect('user:login')
         
         else:
-            return redirect('register')
+            return redirect('user:register')
     
     return render(request, 'register.html')
 
@@ -62,10 +58,10 @@ def LoginView(request):
         user = authenticate(request=request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('sdgapp:home')
         else:
             messages.error(request, 'Invalid username or password')
-            return redirect('login')
+            return redirect('user:login')
         
     return render(request, 'login.html')
 
@@ -73,7 +69,7 @@ def LogoutView(request):
 
     logout(request)
 
-    return redirect('login')
+    return redirect('user:login')
 
 def ForgotPassword(request):
 
@@ -102,11 +98,11 @@ def ForgotPassword(request):
             email_message.fail_silently = True
             email_message.send()
 
-            return redirect('password-reset-sent', reset_id=new_password_reset.reset_id)
+            return redirect('user:password-reset-sent', reset_id=new_password_reset.reset_id)
 
         except User.DoesNotExist:
             messages.error(request, f"No user with email '{email}' found")
-            return redirect('forgot-password')
+            return redirect('user:forgot-password')
 
     return render(request, 'forgot_password.html')
 
@@ -117,7 +113,7 @@ def PasswordResetSent(request, reset_id):
     else:
         # redirect to forgot password page if code does not exist
         messages.error(request, 'Invalid reset id')
-        return redirect('forgot-password')
+        return redirect('user:forgot-password')
 
 def ResetPassword(request, reset_id):
 
@@ -154,16 +150,16 @@ def ResetPassword(request, reset_id):
                 password_reset_id.delete()
 
                 messages.success(request, 'Password reset. Proceed to login')
-                return redirect('login')
+                return redirect('user:login')
             else:
                 # redirect back to password reset page and display errors
-                return redirect('reset-password', reset_id=reset_id)
+                return redirect('user:reset-password', reset_id=reset_id)
 
     
     except PasswordReset.DoesNotExist:
         
         # redirect to forgot password page if code does not exist
         messages.error(request, 'Invalid reset id')
-        return redirect('forgot-password')
+        return redirect('user:forgot-password')
 
     return render(request, 'reset_password.html')

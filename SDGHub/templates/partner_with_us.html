@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us</title>
+
+    <link rel="stylesheet" href="{% static 'css/goal17b.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <div class="partner_page">
+        <section id="partner-with-us">
+            <h1>Partner with Us</h1>
+            <p>Join SDGHub to make a lasting global impact!</p>
+            <div class="nav-buttons">
+                <a href="#why-partner" class="nav-btn">Why Partner?</a>
+                <a href="#partnership-options" class="nav-btn">Partnership Options</a>
+                <a href="#partnership-form" class="nav-btn">Join Now</a>
+            </div>
+        </section>
+
+        <section class="why-partner" id="why-partner">
+            <div class="why-partner-content">
+                <h2>Why Partner with SDGHub?</h2>
+                <p>By partnering with us, you gain increased visibility, access to valuable resources, and the opportunity to create a global impact.</p>
+            </div>
+            <div class="why-partner-image">
+                <img src="{% static 'media/whypartner_image.webp' %}" alt="Partnership Image">
+            </div>
+        </section>
+
+        <section class="partnership-options" id="partnership-options">
+            <h2>Partnership Options</h2>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-box">
+                        <h3>NGOs</h3>
+                        <p>Submit projects, find collaborators, and raise funds.</p>
+                    </div>
+                    <div class="carousel-box">
+                        <h3>Businesses</h3>
+                        <p>Sponsor projects, contribute expertise, or offer resources.</p>
+                    </div>
+                    <div class="carousel-box">
+                        <h3>Individuals</h3>
+                        <p>Volunteer or donate to causes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="partnership-form-section" id="partnership-form">
+            <h2 class="form-title">Join as a Partner</h2>
+            <form action="#" method="POST" class="partnership-form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type of Partnership:</label>
+                    <select id="type" name="type">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="ngo">NGO</option>
+                        <option value="business">Business</option>
+                        <option value="individual">Individual</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sdg-goals">SDG Goals of Interest:</label>
+                    <input type="text" id="sdg-goals" name="sdg-goals" placeholder="E.g., Climate Action, Quality Education">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your interest!"></textarea>
+                </div>
+                <button type="submit" class="form-submit-btn">Submit</button>
+            </form>
+        </section>
+        
+    </div>
+
+    <script src="{% static 'js/goal17.js' %}"></script>
+</body>
