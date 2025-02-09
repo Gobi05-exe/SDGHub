@@ -54,6 +54,7 @@ html {
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
 }
 
 .nav-btn:hover {
