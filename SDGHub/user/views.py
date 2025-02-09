@@ -69,7 +69,7 @@ def LogoutView(request):
 
     logout(request)
 
-    return redirect('user:login')
+    return redirect('goals')
 
 def ForgotPassword(request):
 
