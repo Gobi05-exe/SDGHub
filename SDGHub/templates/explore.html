@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore</title>
-    <link rel="stylesheet" href="explore.css">
+    <link rel="stylesheet" href='{% static 'css/explore.css' %}'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,15 +16,15 @@
 </head>
 <nav>
     <ul>
-        <li><img id="icon" src="leaf.png"></li>
-        <li class="main"><a href="goal17.html"><span
+        <li><img id="icon" src='{% static 'media/leaf.png' %}'></li>
+        <li class="main"><a href="{% url 'goals' %}"><span
                     style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
     </ul>
     <div class="other_resources">
         <ul class="links">
-            <li class="join"><a href="partner_with_us.html">Join Us</a></li>
-            <li><a href="explore.html" class="explore">Explore</a></li>
-            <li><a href="#">Sign Up</a></li>
+            <li class="join"><a href="{% url 'partner' %}">Join Us</a></li>
+            <li><a href="{% url 'explore' %}" class="explore">Explore</a></li>
+            <li><a href="{% url 'user:register' %}">Sign Up</a></li>
         </ul>
     </div>
 </nav>
@@ -41,18 +42,17 @@
                 --quantity: 9;
             ">
             <div class="list">
-                <div class="item" style="--position: 1"><img src="Greatgreenwall.jpg"></div>
-                <div class="item" style="--position: 2"><img src="Oceancleanup.jpeg"></div>
-                <div class="item" style="--position: 3"><img src="solaralliance.jpg"></div>
-                <div class="item" style="--position: 4"><img src="unredd.png" alt=""></div>
-                <div class="item" style="--position: 5"><img src="water.webp" alt=""></div>
-                <div class="item" style="--position: 6"><img src="missioninno.jpg" alt=""></div>
-                <div class="item" style="--position: 7"><img src="WTO.jpg" alt=""></div>
-                <div class="item" style="--position: 8"><img src="Opengov.png" alt=""></div>
-                <div class="item" style="--position: 9"><img src="UNESCO.jpeg" alt=""></div>
-            </div>
+                <div class="item" style="--position: 1"><img src="{% static 'media/Greatgreenwall.jpg' %}"></div>
+                <div class="item" style="--position: 2"><img src="{% static 'media/Oceancleanup.jpeg' %}"></div>
+                <div class="item" style="--position: 3"><img src="{% static 'media/solaralliance.jpg' %}"></div>
+                <div class="item" style="--position: 4"><img src="{% static 'media/unredd.png' %}" alt=""></div>
+                <div class="item" style="--position: 5"><img src="{% static 'media/water.webp' %}" alt=""></div>
+                <div class="item" style="--position: 6"><img src="{% static 'media/missioninno.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 7"><img src="{% static 'media/WTO.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 8"><img src="{% static 'media/Opengov.png' %}" alt=""></div>
+                <div class="item" style="--position: 9"><img src="{% static 'media/UNESCO.jpeg' %}" alt=""></div>
+            </div>            
         </div>
-
 
         <div class="slider" style="
                 --width: 200px;
@@ -60,21 +60,22 @@
                 --quantity: 9;
             ">
             <div class="list">
-                <div class="item" style="--position: 1"><img src="beltandroad.jpg" alt=""></div>
-                <div class="item" style="--position: 2"><img src="GFANZ-OG.jpg" alt=""></div>
-                <div class="item" style="--position: 3"><img src="Global-Forest-Watch.jpg" alt=""></div>
-                <div class="item" style="--position: 4"><img src="WFP.jpg" alt=""></div>
-                <div class="item" style="--position: 5"><img src="paris-agreement.jpg" alt=""></div>
-                <div class="item" style="--position: 6"><img src="ppca.jpg" alt=""></div>
-                <div class="item" style="--position: 7"><img src="plastic.avif" alt=""></div>
-                <div class="item" style="--position: 8"><img src="cleancooking.jpg" alt=""></div>
-                <div class="item" style="--position: 9"><img src="Theunhighseas.jpg" alt=""></div>
-                <div class="item" style="--position: 10"><img src="vaccine.jpg" alt=""></div>
+                <div class="item" style="--position: 1"><img src="{% static 'media/beltandroad.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 2"><img src="{% static 'media/GFANZ-OG.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 3"><img src="{% static 'media/Global-Forest-Watch.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 4"><img src="{% static 'media/WFP.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 5"><img src="{% static 'media/paris-agreement.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 6"><img src="{% static 'media/ppca.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 7"><img src="{% static 'media/plastic.avif' %}" alt=""></div>
+                <div class="item" style="--position: 8"><img src="{% static 'media/cleancooking.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 9"><img src="{% static 'media/Theunhighseas.jpg' %}" alt=""></div>
+                <div class="item" style="--position: 10"><img src="{% static 'media/vaccine.jpg' %}" alt=""></div>
             </div>
+            
         </div>
 
         <div class="footer">
-            To join the cause, and make a difference, <a href="partner_with_us.html">partner with us &#8599;</a>
+            To join the cause, and make a difference, <a href="{% url 'partner' %}">partner with us &#8599;</a>
         </div>
 
     </div>
