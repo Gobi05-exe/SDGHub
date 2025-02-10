@@ -5,3 +5,6 @@ def Goals(request):
 
 def Partner(request):
     return render(request,'partner_with_us.html')
+
+def Explore(request):
+    return render(request,'explore.html')
