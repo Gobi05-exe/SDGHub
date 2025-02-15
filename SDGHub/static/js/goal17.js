@@ -36,4 +36,11 @@ document.querySelectorAll('.nav-btn').forEach(button => {
         }
     });
 });
-
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('nav'); // Get the navbar element by its ID
+    if (window.scrollY > 100) { // Adjust 100 to your desired scroll threshold
+        navbar.classList.add('nav-hide');
+    } else {
+        navbar.classList.remove('nav-hide');
+    }
+});
