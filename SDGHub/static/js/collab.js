@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const goalText = goalPreview.querySelector('.goal-text');
             goalText.textContent = goalName;
             
-            goalIcon.innerHTML = <span style="color: white; font-weight: bold; display: flex; justify-content: center; align-items: center; height: 100%;">${goalId}</span>;
+            goalIcon.innerHTML = `<span style="color: white; font-weight: bold; display: flex; justify-content: center; align-items: center; height: 100%;">${goalId}</span>`;
         } else {
             goalPreview.classList.add('goal-preview-hidden');
             goalPreview.classList.remove('goal-preview');
@@ -330,7 +330,7 @@ function createFloatingIcon() {
                 if (position > 15 || position < -15) {
                     direction *= -1;
                 }
-                icon.style.transform = translateY(${position}px);
+                icon.style.transform = `translateY(${position}px)`;
             }, 50);
             
             setTimeout(() => {
