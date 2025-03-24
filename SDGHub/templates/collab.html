@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDGHub Collaboration Platform</title>
+    <link rel="stylesheet" href="collab.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><img id="icon" src="leaf.png" alt="Leaf Icon"></li>
+            <li class="main"><a href="goal17.html"><span style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
+        </ul>
+        <div class="other_resources">
+            <ul class="links">
+                <li class="join"><a href="partner_with_us.html">Join Us</a></li>
+                <li><a href="explore.html" class="explore">Explore</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="collab.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Collaborate for a <span class="highlight">Sustainable</span> Future</h1>
+            <p>Join forces with like-minded changemakers to achieve the UN Sustainable Development Goals</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="form-card">
+            <h2>Create Your SDG Initiative</h2>
+            <p class="form-intro">Submit your project details to find collaborators and resources for your sustainable development initiative.</p>
+            
+            <form id="sdg-form">
+                <div class="form-group">
+                    <label for="project-title">Project Title</label>
+                    <input type="text" id="project-title" placeholder="Enter your project title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sdg-goal">SDG Goal</label>
+                    <div class="custom-select">
+                        <select id="sdg-goal" required>
+                            <option value="" disabled selected>Select a Sustainable Development Goal</option>
+                            <option value="1">Goal 1: No Poverty</option>
+                            <option value="2">Goal 2: Zero Hunger</option>
+                            <option value="3">Goal 3: Good Health and Well-being</option>
+                            <option value="4">Goal 4: Quality Education</option>
+                            <option value="5">Goal 5: Gender Equality</option>
+                            <option value="6">Goal 6: Clean Water and Sanitation</option>
+                            <option value="7">Goal 7: Affordable and Clean Energy</option>
+                            <option value="8">Goal 8: Decent Work and Economic Growth</option>
+                            <option value="9">Goal 9: Industry, Innovation and Infrastructure</option>
+                            <option value="10">Goal 10: Reduced Inequality</option>
+                            <option value="11">Goal 11: Sustainable Cities and Communities</option>
+                            <option value="12">Goal 12: Responsible Consumption and Production</option>
+                            <option value="13">Goal 13: Climate Action</option>
+                            <option value="14">Goal 14: Life Below Water</option>
+                            <option value="15">Goal 15: Life on Land</option>
+                            <option value="16">Goal 16: Peace, Justice and Strong Institutions</option>
+                            <option value="17">Goal 17: Partnerships for the Goals</option>
+                        </select>
+                        <div class="select-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div id="goal-preview" class="goal-preview-hidden">
+                        <div class="goal-icon"></div>
+                        <div class="goal-text"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="project-description">Project Description</label>
+                    <textarea id="project-description" placeholder="Describe your project and its impact..." rows="4" required></textarea>
+                    <div class="character-counter">
+                        <span id="char-count">0</span>
+                        <span>/500 characters</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Collaborators</label>
+                    <div class="collaborators-container">
+                        <div id="collaborators-list">
+                            <!-- Collaborators will be added here dynamically -->
+                        </div>
+                        <div class="add-collaborator-container">
+                            <input type="text" id="new-collaborator" placeholder="Collaborator name or organization">
+                            <button type="button" id="add-collaborator-btn" class="circular-button">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="funding-target">Funding Target ($)</label>
+                    <input type="number" id="funding-target" placeholder="Enter target amount" min="1" required>
+                    <div class="funding-slider-container">
+                        <input type="range" id="funding-slider" min="1000" max="1000000" step="1000" value="50000">
+                        <div class="slider-values">
+                            <span>$1,000</span>
+                            <span>$1M</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="operation-area">Area of Operation</label>
+                    <input type="text" id="operation-area" placeholder="Search for a location..." required>
+                    <div id="map-container">
+                        <div id="map"></div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Initiative</button>
+                    <button type="reset" class="reset-btn">Reset Form</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="side-panel">
+            <div class="panel-section">
+                <h3>Why Collaborate?</h3>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="info-text">
+                        <p>Collaboration accelerates impact and innovation, bringing diverse perspectives to solve complex sustainability challenges.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-section">
+                <h3>Success Stories</h3>
+                <div class="success-story">
+                    <div class="story-badge">
+                        <span>SDG 6</span>
+                    </div>
+                    <h4>Clean Water Initiative</h4>
+                    <p>Community-led project providing clean water to 12 villages in East Africa</p>
+                    <a href="#" class="story-link">Read More</a>
+                </div>
+                <div class="success-story">
+                    <div class="story-badge">
+                        <span>SDG 13</span>
+                    </div>
+                    <h4>Urban Reforestation</h4>
+                    <p>Planted 50,000 trees in urban areas with 120+ community partners</p>
+                    <a href="#" class="story-link">Read More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-animation">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Initiative Submitted!</h2>
+            <p>Your SDG collaboration initiative has been successfully submitted. We'll connect you with potential collaborators soon.</p>
+            <button class="modal-btn">View My Initiatives</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Impact Report</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">SDG Framework</a></li>
+                        <li><a href="#">Funding Opportunities</a></li>
+                        <li><a href="#">Knowledge Base</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SDGHub. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+    <script src="collab.js"></script>
+</body>
+</html>
