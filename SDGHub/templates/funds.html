@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDG Hub - Fundraising</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:wght@600&family=Fleur+De+Leah&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="funds.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><img id="icon" src="leaf.png" alt="Leaf Icon"></li>
+            <li class="main"><a href="goal17.html"><span style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
+        </ul>
+        <div class="other_resources">
+            <ul class="links">
+                <li class="join"><a href="partner_with_us.html">Join Us</a></li>
+                <li><a href="explore.html" class="explore">Explore</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Sustainable Impact Fund</h1>
+        <p>Empowering global change, one project at a time. Your contribution creates ripples of positive transformation across communities worldwide.</p>
+    </header>
+
+    <main class="fundraising-container">
+        <section class="project-selection">
+            <h2 class="section-title">Select a Project to Support</h2>
+            <div class="project-grid">
+                <div class="project-card" data-project-id="1">
+                    
+                    <h3>Clean Water Initiative</h3>
+                    <p>Providing sustainable water solutions in rural communities</p>
+                    <div class="project-details">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="project-1-progress"></div>
+                        </div>
+                        <div class="funding-info">
+                            <span class="raised">$45,670</span>
+                            <span class="goal">Goal: $100,000</span>
+                        </div>
+                    </div>
+                    <button class="select-project">Support This Project</button>
+                </div>
+
+                <div class="project-card" data-project-id="2">
+                    
+                    <h3>Renewable Energy Access</h3>
+                    <p>Bringing solar power to underserved regions</p>
+                    <div class="project-details">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="project-2-progress"></div>
+                        </div>
+                        <div class="funding-info">
+                            <span class="raised">$78,230</span>
+                            <span class="goal">Goal: $150,000</span>
+                        </div>
+                    </div>
+                    <button class="select-project">Support This Project</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="payment-portal" id="payment-section">
+            <h2>Support Project</h2>
+            <form id="donation-form">
+                <div class="form-group">
+                    <label for="project-name">Selected Project</label>
+                    <input type="text" id="project-name" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="donation-amount">Donation Amount ($)</label>
+                    <input type="number" id="donation-amount" min="10" step="5" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="payment-methods">
+                    <h3>Payment Method</h3>
+                    <div class="payment-icons">
+                        <button type="button" class="payment-method" data-method="credit">Credit Card</button>
+                        <button type="button" class="payment-method" data-method="paypal">PayPal</button>
+                        <button type="button" class="payment-method" data-method="crypto">Crypto</button>
+                    </div>
+                </div>
+                <button type="submit" class="donate-button">Donate Now</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="funds.js"></script>
+</body>
+</html>
