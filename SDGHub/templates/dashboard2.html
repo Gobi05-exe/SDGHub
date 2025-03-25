@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="db.css">
+    <link rel="stylesheet" href="goal17.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><img id="icon" src="leaf.png"></li>
+            <li class="main"><a href="goal17.html"><span
+                        style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
+        </ul>
+        <div class="other_resources">
+            <ul class="links">
+                <li><img class="profile" src="face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg"></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dropdown">
+        <img class="profilein" src="face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg">
+        <div class="vidcont">
+            <div class="video-container" class="video">
+                <video autoplay loop muted>
+                    <source src="1448735-uhd_2732_1440_24fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </div>
+        </div>
+
+        <div class="options">
+            <a class="option" href="newproj.html">Create</a><br>
+            <a class="option" href="collab.html">Collab</a><br>
+            <a class="option" href="funds.html">Funds</a><br>
+            <a class="option" href="settings.html">Settings</a><br>
+            <a class="option" href="dashboard2.html">Profile</a>
+        </div>
+
+    </div>
+
+    <div class="wrapper">
+        <h1 class="welcome">Welcome, Name!</h1>
+        <div class="about">
+            <div class="cards">
+                <div class="card">Total projects: <span class="update" class="totpro" data-val="10">0</span></div>
+                <div class="card">Ongoing Collabs: <span class="update" class="ongoing" data-val="3">0</span></div>
+                <div class="card">Funds Raised: <span class="update" class="funds" data-val="340">000</span></div>
+            </div>
+        </div>
+        
+        <div class="about1">
+            <h2 class="invi">Invitations</h2>
+            <form class="notifs">
+                <div class="invite" id="invite1">
+                    <label class="user">Username123</label>
+        
+                    <input type="radio" name="invite1" value="accept" id="accept1">
+                    <label for="accept1" class="custom-radio">Accept</label>
+        
+                    <input type="radio" name="invite1" value="decline" id="decline1">
+                    <label for="decline1" class="custom-radio">Decline</label>
+                </div>
+            </form>
+        </div>
+
+        
+
+        <div class="projects">
+            <h2>Your Projects</h2>
+            <div class="project-list">
+                <div class="project-card">
+                    <h3>Clean Water Initiative</h3>
+                    <p>Providing access to clean drinking water in rural areas.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Renewable Energy Hub</h3>
+                    <p>Promoting sustainable energy solutions in urban areas.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Education for All</h3>
+                    <p>Bridging the educational gap for underprivileged children.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dp = document.querySelector(".profile");
+            const drop = document.querySelector(".dropdown");
+            const indp = document.querySelector(".profilein");
+            dp.addEventListener("click", function (e) {
+                e.stopPropagation(); // Prevent event bubbling
+                drop.classList.toggle("active");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (e) {
+                if (!drop.contains(e.target) && e.target !== dp) {
+                    drop.classList.remove("active");
+                }
+            });
+
+            indp.addEventListener("click", function () {
+                drop.classList.remove("active");
+            });
+
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+                let valueDisplays = document.querySelectorAll(".update");
+                let interval = 2000; // Total animation time (in milliseconds)
+                let steps = 50; // Number of steps in animation
+                let duration = interval / steps; // Time per step
+
+                valueDisplays.forEach((valueDisplay) => {
+                    let startValue = 0;
+                    let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+                    let increment = endValue / steps; // Adjust step size based on value
+
+                    let counter = setInterval(() => {
+                        startValue += increment;
+                        if (startValue >= endValue) {
+                            valueDisplay.textContent = endValue.toLocaleString(); // Format for readability
+                            clearInterval(counter);
+                        } else {
+                            valueDisplay.textContent = Math.floor(startValue).toLocaleString(); // Ensure whole numbers
+                        }
+                    }, duration);
+                });
+            });
+     document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".notifs input[type='radio']").forEach(radio => {
+                radio.addEventListener("change", function () {
+                    let parentDiv = this.closest(".invite");
+                    if (parentDiv) {
+                        setTimeout(() => parentDiv.remove(), 300);
+                    }
+                });
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

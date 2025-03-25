@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="db.css">
+    <link rel="stylesheet" href="goal17.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="settings.css">
+    
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><img id="icon" src="leaf.png"></li>
+            <li class="main"><a href="goal17.html"><span
+                        style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
+        </ul>
+        <div class="other_resources">
+            <ul class="links">
+                <li><img class="profile" src="face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg"></li>
+    
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dropdown">
+        <img class="profilein" src="face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg">
+        <div class="vidcont">
+            <div class="video-container" class="video">
+                <video autoplay loop muted>
+                    <source src="1448735-uhd_2732_1440_24fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+    
+            </div>
+        </div>
+    
+        <div class="options">
+            <a class="option" href="newproj.html">Create</a><br>
+            <a class="option" href="collab.html">Collab</a><br>
+            <a class="option" href="funds.html">Funds</a><br>
+            <a class="option" href="settings.html">Settings</a><br>
+            <a class="option" href="dashboard2.html">Profile</a>
+        </div>
+    
+    </div>
+
+    <div class="wrapper">
+        <div class="welcome">Settings</div>
+        <div class="settings-container">
+            <form class="settings-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter new username">
+
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password">
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob">
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" placeholder="Tell us about yourself"></textarea>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".settings-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let dob = document.getElementById("dob").value.trim();
+            let bio = document.getElementById("bio").value.trim();
+
+            if (username || password || dob || bio) {
+                alert("Settings saved successfully!");
+                this.submit(); 
+            } else {
+                alert("Please fill in at least one field before saving.");
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+                const dp = document.querySelector(".profile");
+                const drop = document.querySelector(".dropdown");
+                const indp = document.querySelector(".profilein");
+                dp.addEventListener("click", function (e) {
+                    e.stopPropagation(); // Prevent event bubbling
+                    drop.classList.toggle("active");
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener("click", function (e) {
+                    if (!drop.contains(e.target) && e.target !== dp) {
+                        drop.classList.remove("active");
+                    }
+                });
+
+                indp.addEventListener("click", function () {
+                    drop.classList.remove("active");
+                });
+
+            });
+    </script>
+
+</body>
+
+</html>

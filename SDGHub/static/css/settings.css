@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    background-image: url("priscilla-du-preez-6gWMviz-vSo-unsplash.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -1;
+}
+
+.welcome {
+    text-align: center;
+    width: 100vw;
+    color: #f5f5d3;
+    font-family: "Poiret One", serif;
+    padding-top: 20px;
+}
+
+.settings-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: white;
+    width: 40%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-form label {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #f5f5d3;
+}
+
+.settings-form input,
+.settings-form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.settings-form button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #5d5d50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.settings-form button:hover {
+    background-color: #42423a;
+}
