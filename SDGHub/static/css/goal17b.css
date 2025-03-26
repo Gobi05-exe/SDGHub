@@ -299,6 +299,7 @@ a {
 .other_resources .links li a:hover:before {
     width: 100%;
 }
+
 .container {
     display: flex;
     max-width: 1400px; 
@@ -392,3 +393,6 @@ button:hover{
     background-color: #798262;
 }
 
+.links .join a {
+    text-decoration: underline;
+}

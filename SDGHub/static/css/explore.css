@@ -189,3 +189,25 @@ transition: 0.5s;
     font-size: 30px;
     font-weight: 600;
 }
+.links li a {
+    position: relative;
+    padding: 6px 0;
+  }
+  
+  .other_resources .links li a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #f5f5d3;
+    transition: all 0.4s ease;
+  }
+  
+  .other_resources .links li a:hover:before {
+    width: 100%;
+  }
+  .explore {
+    border-bottom: 2px solid #f5f5d3;
+  }
