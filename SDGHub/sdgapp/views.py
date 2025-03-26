@@ -41,13 +41,24 @@ def Collab(request):
                 funding_target=int(funding_target),
                 funding_received=0,
             )
-            #return redirect('dashboard')  
+            return redirect('dashboard')  
 
     return render(request, 'collab.html')
 
 @login_required
 def Funds(request):
-    return render(request, 'funds.html')
+    all_projects = UserProjects.objects.all()  # Fetch all projects
+    total_funds_raised = all_projects.aggregate(Sum('funding_received'))['funding_received__sum'] or 0
+    total_funding_target = all_projects.aggregate(Sum('funding_target'))['funding_target__sum'] or 0
+    remaining_funds_needed = total_funding_target - total_funds_raised
+
+    return render(request, 'funds.html', {
+        'all_projects': all_projects,
+        'total_funds_raised': total_funds_raised,
+        'total_funding_target': total_funding_target,
+        'remaining_funds_needed': remaining_funds_needed,
+    })
+
 
 @login_required
 def Settings(request):
