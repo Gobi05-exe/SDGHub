@@ -54,12 +54,12 @@
     </div>
 
     <div class="wrapper">
-        <h1 class="welcome">Welcome, Name!</h1>
+        <h1 class="welcome">Welcome, {{ user.username }}</h1>
         <div class="about">
             <div class="cards">
-                <div class="card">Total projects: <span class="update" class="totpro" data-val="10">0</span></div>
-                <div class="card">Ongoing Collabs: <span class="update" class="ongoing" data-val="3">0</span></div>
-                <div class="card">Funds Raised: <span class="update" class="funds" data-val="340">000</span></div>
+                <div class="card">Total Projects: <span class="update totpro" data-val="{{ total_projects }}">0</span></div>
+                <div class="card">Total Funds Raised: ₹<span class="update funds" data-val="{{ total_funds_raised }}">000</span></div>
+                <div class="card">Tokens Earned: <span class="update tokens" data-val="{{ tokens_earned }}">0</span></div>
             </div>
         </div>
         
@@ -83,20 +83,21 @@
         <div class="projects">
             <h2>Your Projects</h2>
             <div class="project-list">
+                {% for project in user_projects %}
                 <div class="project-card">
-                    <h3>Clean Water Initiative</h3>
-                    <p>Providing access to clean drinking water in rural areas.</p>
+                    <h3>{{ project.title }}</h3>
+                    <p><strong>SDG Goal:</strong> {{ project.sdg_goal }}</p>
+                    <p><strong>Description:</strong> {{ project.description }}</p>
+                    <p><strong>Collaborators:</strong> {{ project.collaborators|default:"None" }}</p>
+                    <p><strong>Funding Target:</strong> ₹{{ project.funding_target }}</p>
+                    <p><strong>Funding Received:</strong> ₹{{ project.funding_received }}</p>
                 </div>
-                <div class="project-card">
-                    <h3>Renewable Energy Hub</h3>
-                    <p>Promoting sustainable energy solutions in urban areas.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Education for All</h3>
-                    <p>Bridging the educational gap for underprivileged children.</p>
-                </div>
+                {% empty %}
+                <p>No projects found.</p>
+                {% endfor %}
             </div>
         </div>
+        
 
     </div>
 
@@ -155,7 +156,28 @@
                 });
             });
         });
-
+        document.addEventListener("DOMContentLoaded", function () {
+            let valueDisplays = document.querySelectorAll(".update");
+            let interval = 2000; // Animation duration
+            let steps = 50; // Number of steps
+            let duration = interval / steps;
+    
+            valueDisplays.forEach((valueDisplay) => {
+                let startValue = 0;
+                let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+                let increment = endValue / steps;
+    
+                let counter = setInterval(() => {
+                    startValue += increment;
+                    if (startValue >= endValue) {
+                        valueDisplay.textContent = endValue.toLocaleString();
+                        clearInterval(counter);
+                    } else {
+                        valueDisplay.textContent = Math.floor(startValue).toLocaleString();
+                    }
+                }, duration);
+            });
+        });
 
 
     </script>

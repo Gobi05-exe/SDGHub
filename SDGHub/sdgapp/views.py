@@ -1,11 +1,24 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from sdgapp.models import UserProjects 
+from django.db.models import Sum
+
 
 
 @login_required
 def Dashboard(request):
-    return render(request, 'dashboard2.html')
+    user_projects = UserProjects.objects.filter(user=request.user)
+    total_projects = user_projects.count()
+    total_funds_raised = user_projects.aggregate(Sum('funding_received'))['funding_received__sum'] or 0
+    tokens_earned = (total_funds_raised // 1000) + total_projects
+     
+    return render(request, 'dashboard2.html', {
+        'user': request.user,
+        'user_projects': user_projects,
+        'total_projects': total_projects,
+        'total_funds_raised': total_funds_raised,
+        'tokens_earned': tokens_earned
+    })
 
 @login_required
 def Collab(request):
