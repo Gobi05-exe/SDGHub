@@ -52,6 +52,21 @@ a {
     margin-right: 15px;
 }
 
+.dropdown {
+    background-color: rgba(147, 147, 129, 0.95);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    display: flex;
+    text-align: center;
+    font-size: 3rem;
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
+}
+
 .main {
     font-size: 30px;
     font-family: "Fleur De Leah", serif;
@@ -83,7 +98,7 @@ a {
     color: #f5f5d3;
     position: relative;
     z-index: 2;
-    text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
 }
 
@@ -97,9 +112,17 @@ a {
 }
 
 @keyframes gradientFlow {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .fundraising-container {
@@ -297,6 +320,9 @@ a {
     background-color: #6B8E23;
     transform: translateY(-2px);
 }
+
+/* nav bar */
+
 .other_resources .links li a:before {
     content: '';
     position: absolute;
@@ -311,9 +337,90 @@ a {
 .other_resources .links li a:hover:before {
     width: 100%;
 }
+
 .profile {
     cursor: pointer;
     width: 30px;
     height: 30px;
 }
 
+
+
+.dropdown.active {
+    transform: translateX(0);
+}
+
+.profile {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+
+}
+
+nav {
+    position: relative;
+    z-index: 1001;
+}
+
+.about {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Soft shadow */
+    padding: 20px;
+    color: white;
+    width: 30%;
+    height: 50vh;
+    margin: 10px;
+}
+
+.profilein {
+    position: fixed;
+    top: 14px;
+    width: 30px;
+    text-align: end;
+    margin-left: 95.3vw;
+}
+
+.options {
+    margin-top: 11%;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.option:hover {
+    color: #5d5d50;
+    transition: 0.3s;
+    border-bottom: #5d5d50 1px solid;
+}
+
+.video-container {
+    width: 40vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.vidcont {
+    width: 90vw;
+    height: 90vh;
+    overflow: hidden;
+    margin: 30px;
+    border-radius: 10px;
+    margin-left: 100px;
+
+}

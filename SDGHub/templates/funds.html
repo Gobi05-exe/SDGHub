@@ -1,31 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDG Hub - Fundraising</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:wght@600&family=Fleur+De+Leah&family=Poiret+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="..\static\css\funds.css">
+    <script src="funds.js"></script>
+    <link rel="stylesheet" href="..\static\css\goal17.css">
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:wght@600&family=Fleur+De+Leah&family=Poiret+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/funds.css" %}">
 </head>
+
 <body>
+
+
     <nav>
         <ul>
-            <li><img id="icon" src="{% static "media/leaf.png" %}"></li>
-            <li class="main"><a href="{% url "goals" %}"><span
+            <li><img id="icon" src="leaf.png"></li>
+            <li class="main"><a href="goals17.html"><span
                         style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
         </ul>
         <div class="other_resources">
             <ul class="links">
-                <li ><a href="{% url 'sdgapp:dashboard' %}">Dashboard</a></li>
-                <li><img class="profile" src="{% static 'media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg' %}"></li>
+                <li ><a href="dashboard2.html">Dashboard</a></li>
+                <li><img class="profile" src="face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg"></li>
             </ul>
         </div>
     </nav>
+
+    <div class="dropdown">
+        <img class="profilein" src="face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg">
+        <div class="vidcont">
+            <div class="video-container" class="video">
+                <video autoplay loop muted>
+                    <source src="1448735-uhd_2732_1440_24fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </div>
+        </div>
+
+        <div class="options">
+            <a class="option" href="newproj.html">Create</a><br>
+            <a class="option" href="collab.html">Collab</a><br>
+            <a class="option" href="funds.html">Funds</a><br>
+            <a class="option" href="settings.html">Settings</a><br>
+            <a class="option" href="dashboard2.html">Profile</a>
+        </div>
+
+    </div>
+
     <header class="page-header">
         <h1>Sustainable Impact Fund</h1>
-        <p>Empowering global change, one project at a time. Your contribution creates ripples of positive transformation across communities worldwide.</p>
+        <p>Empowering global change, one project at a time. Your contribution creates ripples of positive transformation
+            across communities worldwide.</p>
     </header>
 
     <main class="fundraising-container">
@@ -33,7 +67,7 @@
             <h2 class="section-title">Select a Project to Support</h2>
             <div class="project-grid">
                 <div class="project-card" data-project-id="1">
-                    
+
                     <h3>Clean Water Initiative</h3>
                     <p>Providing sustainable water solutions in rural communities</p>
                     <div class="project-details">
@@ -49,7 +83,7 @@
                 </div>
 
                 <div class="project-card" data-project-id="2">
-                    
+
                     <h3>Renewable Energy Access</h3>
                     <p>Bringing solar power to underserved regions</p>
                     <div class="project-details">
@@ -98,6 +132,29 @@
         </section>
     </main>
 
-    <script src="funds.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dp = document.querySelector(".profile");
+            const drop = document.querySelector(".dropdown");
+            const indp = document.querySelector(".profilein");
+            dp.addEventListener("click", function (e) {
+                e.stopPropagation(); // Prevent event bubbling
+                drop.classList.toggle("active");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (e) {
+                if (!drop.contains(e.target) && e.target !== dp) {
+                    drop.classList.remove("active");
+                }
+            });
+
+            indp.addEventListener("click", function () {
+                drop.classList.remove("active");
+            });
+
+        });
+    </script>
 </body>
+
 </html>
