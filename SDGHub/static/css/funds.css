@@ -301,3 +301,23 @@ a {
     background-color: #6B8E23;
     transform: translateY(-2px);
 }
+.other_resources .links li a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #f5f5d3;
+    transition: all 0.4s ease;
+}
+
+.other_resources .links li a:hover:before {
+    width: 100%;
+}
+.profile {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+

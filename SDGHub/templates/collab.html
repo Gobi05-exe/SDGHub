@@ -17,17 +17,20 @@
 <body>
     <nav>
         <ul>
-            <li><img id="icon" src="..\static\media\leaf.png" alt="Leaf Icon"></li>
-            <li class="main"><a href="goal17.html"><span style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
+            <li><img id="icon" src="{% static "media/leaf.png" %}"></li>
+            <li class="main"><a href="{% url "goals" %}"><span
+                        style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
         </ul>
         <div class="other_resources">
             <ul class="links">
-                <li class="join"><a href="partner_with_us.html">Join Us</a></li>
-                <li><a href="explore.html" class="explore">Explore</a></li>
-                <li><a href="#">Sign Up</a></li>
+                
+                <li class="home"><a href="dashboard2.html">Dashboard</a></li>
+                <li><img class="profile" src="face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg"></li>
+                
             </ul>
         </div>
     </nav>
+
 
     <div class="hero-section">
         <video autoplay loop muted playsinline class="hero-video">
@@ -120,13 +123,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="operation-area">Area of Operation</label>
-                    <input type="text" id="operation-area" placeholder="Search for a location..." required>
-                    <div id="map-container">
-                        <div id="map"></div>
-                    </div>
-                </div>
 
                 <div class="form-actions">
                     <button type="submit" class="submit-btn">Submit Initiative</button>
@@ -177,42 +173,10 @@
             </div>
             <h2>Initiative Submitted!</h2>
             <p>Your SDG collaboration initiative has been successfully submitted. We'll connect you with potential collaborators soon.</p>
-            <button class="modal-btn">View My Initiatives</button>
         </div>
     </div>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub
-            </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">Impact Report</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">SDG Framework</a></li>
-                        <li><a href="#">Funding Opportunities</a></li>
-                        <li><a href="#">Knowledge Base</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                        <li><a href="#">Community</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="footer-bottom">
             <p>&copy; 2025 SDGHub. All rights reserved.</p>
             <div class="social-icons">
