@@ -53,13 +53,13 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="project-title">Project Title</label>
-                    <input type="text" id="project-title" placeholder="Enter your project title" required>
+                    <input type="text" name="title" id="project-title" placeholder="Enter your project title" required>
                 </div>
 
                 <div class="form-group">
                     <label for="sdg-goal">SDG Goal</label>
                     <div class="custom-select">
-                        <select id="sdg-goal" required>
+                        <select name="sdg_goal" id="sdg-goal" required>
                             <option value="" disabled selected>Select a Sustainable Development Goal</option>
                             <option value="1">Goal 1: No Poverty</option>
                             <option value="2">Goal 2: Zero Hunger</option>
@@ -91,7 +91,7 @@
 
                 <div class="form-group">
                     <label for="project-description">Project Description</label>
-                    <textarea id="project-description" placeholder="Describe your project and its impact..." rows="4" required></textarea>
+                    <textarea name="description" id="project-description" placeholder="Describe your project and its impact..." rows="4" required></textarea>
                     <div class="character-counter">
                         <span id="char-count">0</span>
                         <span>/500 characters</span>
@@ -101,21 +101,15 @@
                 <div class="form-group">
                     <label>Collaborators</label>
                     <div class="collaborators-container">
-                        <div id="collaborators-list">
-                            <!-- Collaborators will be added here dynamically -->
-                        </div>
                         <div class="add-collaborator-container">
-                            <input type="text" id="new-collaborator" placeholder="Collaborator name or organization">
-                            <button type="button" id="add-collaborator-btn" class="circular-button">
-                                <i class="fas fa-plus"></i>
-                            </button>
+                            <input type="text" name="collaborators" id="new-collaborator" placeholder="Collaborator name or organization" required>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="funding-target">Funding Target ($)</label>
-                    <input type="number" id="funding-target" placeholder="Enter target amount" min="1" required>
+                    <input type="number" name="funding_target" id="funding-target" placeholder="Enter target amount" min="1" required>
                     <div class="funding-slider-container">
                         <input type="range" id="funding-slider" min="1000" max="1000000" step="1000" value="50000">
                         <div class="slider-values">
@@ -167,16 +161,7 @@
         </div>
     </main>
 
-    <div id="success-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="success-animation">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2>Initiative Submitted!</h2>
-            <p>Your SDG collaboration initiative has been successfully submitted. We'll connect you with potential collaborators soon.</p>
-        </div>
-    </div>
+
 
     <footer>
         <div class="footer-bottom">
@@ -190,7 +175,6 @@
         </div>
     </footer>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
-    <script src="{% static "js\collab.js" %}"></script>
+    <script src="{% static "js/collab.js" %}"></script>
 </body>
 </html>

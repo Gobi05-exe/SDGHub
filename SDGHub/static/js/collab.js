@@ -1,5 +1,4 @@
 // Global variables
-let map;
 let marker;
 let autocomplete;
 let collaboratorCount = 0;
@@ -11,92 +10,19 @@ const sdgColors = {
     "17": "#19486a"
 };
 
-// Initialize the map function to be called by Google Maps API
-function initMap() {
-    const defaultLocation = { lat: 0, lng: 0 };
-    
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: defaultLocation,
-        zoom: 2,
-        mapTypeControl: false,
-        streetViewControl: false,
-        fullscreenControl: false
-    });
-    
-    marker = new google.maps.Marker({
-        position: defaultLocation,
-        map: map,
-        draggable: true,
-        animation: google.maps.Animation.DROP
-    });
-    
-    autocomplete = new google.maps.places.Autocomplete(document.getElementById('operation-area'));
-    autocomplete.setFields(['address_components', 'geometry', 'name']);
-    
-    autocomplete.addListener('place_changed', function() {
-        const place = autocomplete.getPlace();
-        
-        if (!place.geometry) {
-            return;
-        }
-        
-        marker.setPosition(place.geometry.location);
-        map.setCenter(place.geometry.location);
-        map.setZoom(10);
-    });
-    
-    marker.addListener('dragend', function() {
-        const geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ location: marker.getPosition() }, function(results, status) {
-            if (status === 'OK' && results[0]) {
-                document.getElementById('operation-area').value = results[0].formatted_address;
-            }
-        });
-    });
-    
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            const userLocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            
-            map.setCenter(userLocation);
-            map.setZoom(10);
-            marker.setPosition(userLocation);
-            
-            const geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ location: userLocation }, function(results, status) {
-                if (status === 'OK' && results[0]) {
-                    document.getElementById('operation-area').value = results[0].formatted_address;
-                }
-            });
-        });
-    }
-}
 
-// Make initMap globally accessible for Google Maps API to call
-window.initMap = initMap;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Form elements
-    const form = document.getElementById('sdg-form');
-    const projectTitle = document.getElementById('project-title');
     const sdgGoal = document.getElementById('sdg-goal');
     const projectDescription = document.getElementById('project-description');
     const charCount = document.getElementById('char-count');
     const newCollaborator = document.getElementById('new-collaborator');
-    const addCollaboratorBtn = document.getElementById('add-collaborator-btn');
-    const collaboratorsList = document.getElementById('collaborators-list');
     const fundingTarget = document.getElementById('funding-target');
     const fundingSlider = document.getElementById('funding-slider');
-    const operationArea = document.getElementById('operation-area');
     const goalPreview = document.getElementById('goal-preview');
     
-    // Modal elements
-    const modal = document.getElementById('success-modal');
-    const closeModal = document.querySelector('.close-modal');
-    const modalBtn = document.querySelector('.modal-btn');
+
     
     initEventListeners();
     
@@ -111,43 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    function addCollaborator() {
-        const collaboratorName = newCollaborator.value.trim();
-        
-        if (collaboratorName) {
-            collaboratorCount++;
-            
-            const collaboratorTag = document.createElement('div');
-            collaboratorTag.className = 'collaborator-tag';
-            collaboratorTag.dataset.id = collaboratorCount;
-            
-            const nameSpan = document.createElement('span');
-            nameSpan.textContent = collaboratorName;
-            
-            const removeBtn = document.createElement('button');
-            removeBtn.className = 'remove-collaborator';
-            removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-            removeBtn.setAttribute('aria-label', 'Remove collaborator');
-            
-            removeBtn.addEventListener('click', function() {
-                collaboratorTag.remove();
-                updateCollaboratorStyles();
-            });
-            
-            collaboratorTag.appendChild(nameSpan);
-            collaboratorTag.appendChild(removeBtn);
-            collaboratorsList.appendChild(collaboratorTag);
-            
-            newCollaborator.value = '';
-            
-            setTimeout(() => {
-                collaboratorTag.style.opacity = '1';
-                collaboratorTag.style.transform = 'translateY(0)';
-            }, 10);
-            
-            updateCollaboratorStyles();
-        }
-    }
+   
     
     function updateCollaboratorStyles() {
         const tags = document.querySelectorAll('.collaborator-tag');
@@ -190,27 +80,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    function handleSubmit(e) {
-        e.preventDefault();
-        
-        if (!projectTitle.value.trim() || !sdgGoal.value || !projectDescription.value.trim() || 
-            !fundingTarget.value || !operationArea.value.trim()) {
-            alert('Please fill in all required fields.');
-            return;
-        }
-        
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
+
     
     function initEventListeners() {
         projectDescription.addEventListener('input', updateCharCount);
         
-        addCollaboratorBtn.addEventListener('click', addCollaborator);
         newCollaborator.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                addCollaborator();
             }
         });
         
@@ -219,25 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
         fundingTarget.addEventListener('change', updateSliderFromFunding);
         
         sdgGoal.addEventListener('change', updateGoalPreview);
+                
         
-        form.addEventListener('submit', handleSubmit);
-        
-        closeModal.addEventListener('click', function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-        });
-        
-        modalBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-        });
-        
-        window.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
     }
     
     function addVisualEffects() {
