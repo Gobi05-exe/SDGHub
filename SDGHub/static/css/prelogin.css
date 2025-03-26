@@ -132,3 +132,19 @@ input[type="submit"]:hover {
 .signup_link a:hover {
   text-decoration: underline;
 }
+
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #33352C;
+  padding: 10px 30px;
+  z-index: 1000;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}

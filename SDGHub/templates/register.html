@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en" dir="ltr">
   <head>
     {% load static %}
     <meta charset="utf-8">
     <title>Register</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
-    </head>
+    <link rel="stylesheet" href="{% static 'css/prelogin.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap" rel="stylesheet">
+  </head>
  
   <body>
+    <nav>
+        <ul>
+            <li><img id="icon" src="{% static "media/leaf.png" %}"></li>
+            <li class="main"><a href="{% url "goals" %}"><span style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
+        </ul>
+        <div class="other_resources">
+            <ul class="links">
+                <li class="join"><a href="{% url "partner" %}">Join Us</a></li>
+                <li><a href="{% url "explore" %}" class="explore">Explore</a></li>
+                <li><a href="{% url "user:register" %}">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="center">
       <h1>Register</h1>
 
@@ -23,7 +39,6 @@
       {% endif %}
 
       <form method="POST">
-
         {% csrf_token %}
       
         <div class="txt_field">
@@ -56,13 +71,11 @@
           <label>Password</label>
         </div>    
 
-        <!-- <div class="pass">Forgot Password?</div> -->
         <input type="submit" value="Register">
         <div class="signup_link">
           Already have an account? <a href="{% url 'user:login' %}">Login</a>
         </div>
       </form>
     </div>
-
   </body>
 </html>
