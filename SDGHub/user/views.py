@@ -58,7 +58,7 @@ def LoginView(request):
         user = authenticate(request=request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('sdgapp:home')
+            return redirect('sdgapp:dashboard')
         else:
             messages.error(request, 'Invalid username or password')
             return redirect('user:login')

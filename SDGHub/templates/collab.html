@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDGHub Collaboration Platform</title>
-    <link rel="stylesheet" href="{% static 'css\collab.css' %}">
+    <link rel="stylesheet" href="..\static\css\collab.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,8 +24,8 @@
         <div class="other_resources">
             <ul class="links">
                 
-                <li class="home"><a href="{% url 'sdgapp:dashboard' %}">Dashboard</a></li>
-                <li><img class="profile" src="{% static 'media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg' %}"></li>
+                <li class="home"><a href="dashboard2.html">Dashboard</a></li>
+                <li><img class="profile" src="face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg"></li>
                 
             </ul>
         </div>
@@ -35,7 +34,7 @@
 
     <div class="hero-section">
         <video autoplay loop muted playsinline class="hero-video">
-            <source src="{% static "media/collab.mp4" %}%}" type="video/mp4">
+            <source src="..\static\media\collab.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-content">
@@ -49,8 +48,7 @@
             <h2>Create Your SDG Initiative</h2>
             <p class="form-intro">Submit your project details to find collaborators and resources for your sustainable development initiative.</p>
             
-            <form id="sdg-form" method="POST">
-                {% csrf_token %}
+            <form id="sdg-form">
                 <div class="form-group">
                     <label for="project-title">Project Title</label>
                     <input type="text" id="project-title" placeholder="Enter your project title" required>
@@ -191,6 +189,6 @@
     </footer>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
-    <script src="{% static "js/collab.js" %}"></script>
+    <script src="..\static\js\collab.js"></script>
 </body>
 </html>
