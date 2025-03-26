@@ -60,9 +60,8 @@ a {
 .page-header {
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(135deg, #556B2F, #6B8E23);
+    background: #798262;
     background-size: 200% 200%;
-    animation: gradientFlow 10s ease infinite;
     position: relative;
     overflow: hidden;
 }
@@ -74,9 +73,6 @@ a {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(ellipse at center, 
-        rgba(255,255,255,0.3) 0%, 
-        rgba(255,255,255,0) 70%);
     transform: rotate(-45deg);
     z-index: 1;
 }
@@ -115,7 +111,7 @@ a {
 .section-title {
     text-align: center;
     margin-bottom: 30px;
-    color: #556B2F;
+    color: #33352C;
     font-size: 2.5rem;
 }
 
@@ -151,7 +147,7 @@ a {
 .project-card h3 {
     padding: 15px;
     text-align: center;
-    background-color: #556B2F;
+    background-color: #33352C;
     color: #f5f5d3;
 }
 
@@ -171,7 +167,7 @@ a {
 
 .progress-bar {
     height: 100%;
-    background-color: #6B8E23;
+    background-color: #798262;
     width: 0;
     transition: width 1s ease-in-out;
 }
@@ -187,7 +183,7 @@ a {
 .select-project {
     width: 100%;
     padding: 10px;
-    background-color: #556B2F;
+    background-color: #33352C;
     color: #f5f5d3;
     border: none;
     cursor: pointer;
@@ -279,7 +275,7 @@ a {
 }
 
 .payment-method.selected {
-    background-color: #2e7d32;
+    background-color: #798262;
     box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.3);
 }
 

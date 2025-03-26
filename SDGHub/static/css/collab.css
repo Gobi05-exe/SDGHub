@@ -100,7 +100,7 @@ body {
 }
 
 .hero-content .highlight {
-    color: var(--accent-color);
+    color: #798262;
 }
 
 .hero-content p {
@@ -140,13 +140,13 @@ body {
 }
 
 .form-card h2 {
-    color: var(--primary-dark);
+    color: #798262;
     margin-bottom: 10px;
     font-size: 28px;
 }
 
 .form-intro {
-    color: var(--text-light);
+    color: #798262;;
     margin-bottom: 25px;
 }
 
@@ -157,8 +157,8 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--text-dark);
+    font-weight: bolder;
+    color: #798262;;
 }
 
 .form-group input[type="text"],
@@ -228,7 +228,7 @@ body {
 
 .goal-text {
     font-size: 14px;
-    color: var(--text-dark);
+    color: #798262;;
 }
 
 /* Collaborators Section */
@@ -278,7 +278,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--primary-color);
+    background-color:#798262;;
     color: white;
     border: none;
     display: flex;
@@ -314,7 +314,7 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--primary-color);
+    background: #798262;;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -350,13 +350,13 @@ body {
 }
 
 .submit-btn {
-    background-color: var(--primary-color);
+    background-color:#33352C;;
     color: white;
     flex: 2;
 }
 
 .submit-btn:hover {
-    background-color: var(--primary-dark);
+    background-color: #798262;
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(30, 142, 62, 0.3);
 }
