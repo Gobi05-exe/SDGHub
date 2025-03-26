@@ -2,15 +2,16 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDG Hub - Fundraising</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:wght@600&family=Fleur+De+Leah&family=Poiret+One&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="..\static\css\funds.css">
-    <script src="funds.js"></script>
-    <link rel="stylesheet" href="..\static\css\goal17.css">
+    <link rel="stylesheet" href="{% static "css\funds.css" %}">
+    <script src="{% static "js\funds.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css\goal17.css" %}">
 </head>
 
 <body>
@@ -18,25 +19,25 @@
 
     <nav>
         <ul>
-            <li><img id="icon" src="leaf.png"></li>
-            <li class="main"><a href="goal17.html"><span
+            <li><img id="icon" src="{% static "media/leaf.png" %}"></li>
+            <li class="main"><a href="{% url "goals" %}"><span
                         style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
         </ul>
         <div class="other_resources">
             <ul class="links">
-                <li><a href="dashboard2.html">Dashboard</a></li>
-                <li><img class="profile" src="face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg"></li>
+                <li><a href="{% url "sdgapp:dashboard" %}">Dashboard</a></li>
+                <li><img class="profile" src="{% static "media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}"></li>
 
             </ul>
         </div>
     </nav>
 
     <div class="dropdown">
-        <img class="profilein" src="face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg">
+        <img class="profilein" src="{% static "media/face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
         <div class="vidcont">
             <div class="video-container" class="video">
                 <video autoplay loop muted>
-                    <source src="1448735-uhd_2732_1440_24fps.mp4" type="video/mp4">
+                    <source src="{% static "media/1448735-uhd_2732_1440_24fps.mp4" %}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
@@ -44,11 +45,10 @@
         </div>
 
         <div class="options">
-            <a class="option" href="newproj.html">Create</a><br>
-            <a class="option" href="collab.html">Collab</a><br>
-            <a class="option" href="funds.html">Funds</a><br>
-            <a class="option" href="settings.html">Settings</a><br>
-            <a class="option" href="dashboard2.html">Profile</a>
+            <a class="option" href="{% url 'sdgapp:collab' %}">Collab</a><br>
+            <a class="option" href="{% url 'sdgapp:funds' %}">Funds</a><br>
+            <a class="option" href="{% url 'sdgapp:settings' %}">Settings</a><br>
+            <a class="option" href="{% url 'sdgapp:dashboard' %}">Profile</a>
         </div>
 
     </div>
@@ -99,7 +99,8 @@
 
         <section class="payment-portal" id="payment-section">
             <h2>Support Project</h2>
-            <form id="donation-form">
+            <form id="donation-form" method="POST">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="project-name">Selected Project</label>
                     <input type="text" id="project-name" readonly>
