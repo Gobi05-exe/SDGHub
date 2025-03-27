@@ -1,41 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDGHub Collaboration Platform</title>
-    <link rel="stylesheet" href="{% static "css\collab.css" %}">
+    <link rel="stylesheet" href="{% static " css\collab.css" %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="{% static " js/collab.js" %}"></script>
 </head>
+
 <body>
+
     <nav>
         <ul>
-            <li><img id="icon" src="{% static "media/leaf.png" %}"></li>
-            <li class="main"><a href="{% url "goals" %}"><span
+            <li><img id="icon" src="{% static " media/leaf.png" %}"></li>
+            <li class="main"><a href="{% url " goals" %}"><span
                         style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
         </ul>
         <div class="other_resources">
             <ul class="links">
-                
-                <li class="home"><a href="{% url "sdgapp:dashboard" %}">Dashboard</a></li>
-                <li><img class="profile" src="{% static "media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}"></li>
-                
+                <li><img class="profile" src="{% static " media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
+                </li>
+
             </ul>
         </div>
     </nav>
 
+    <div class="dropdown">
+        <img class="profilein" src="{% static " media/face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
+        <div class="vidcont">
+            <div class="video-container" class="video">
+                <video autoplay loop muted>
+                    <source src="{% static " media/forests.mp4" %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </div>
+        </div>
+
+        <div class="options">
+            <a class="option" href="{% url 'sdgapp:collab' %}">Collab</a><br>
+            <a class="option" href="{% url 'sdgapp:funds' %}">Funds</a><br>
+            <a class="option" href="{% url 'sdgapp:settings' %}">Settings</a><br>
+            <a class="option" href="{% url 'sdgapp:dashboard' %}">Profile</a><br>
+            <a class="option" href="{% url 'explore' %}">Sign Out</a>
+        </div>
+
+    </div>
+
 
     <div class="hero-section">
         <video autoplay loop muted playsinline class="hero-video">
-            <source src="{% static "media\collab.mp4" %}" type="video/mp4">
+            <source src="collab.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-content">
@@ -47,8 +75,9 @@
     <main class="container">
         <div class="form-card">
             <h2>Create Your SDG Initiative</h2>
-            <p class="form-intro">Submit your project details to find collaborators and resources for your sustainable development initiative.</p>
-            
+            <p class="form-intro">Submit your project details to find collaborators and resources for your sustainable
+                development initiative.</p>
+
             <form id="sdg-form" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
@@ -91,7 +120,8 @@
 
                 <div class="form-group">
                     <label for="project-description">Project Description</label>
-                    <textarea name="description" id="project-description" placeholder="Describe your project and its impact..." rows="4" required></textarea>
+                    <textarea name="description" id="project-description"
+                        placeholder="Describe your project and its impact..." rows="4" required></textarea>
                     <div class="character-counter">
                         <span id="char-count">0</span>
                         <span>/500 characters</span>
@@ -102,14 +132,16 @@
                     <label>Collaborators</label>
                     <div class="collaborators-container">
                         <div class="add-collaborator-container">
-                            <input type="text" name="collaborators" id="new-collaborator" placeholder="Collaborator name or organization" required>
+                            <input type="text" name="collaborators" id="new-collaborator"
+                                placeholder="Collaborator name or organization" required>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="funding-target">Funding Target ($)</label>
-                    <input type="number" name="funding_target" id="funding-target" placeholder="Enter target amount" min="1" required>
+                    <input type="number" name="funding_target" id="funding-target" placeholder="Enter target amount"
+                        min="1" required>
                     <div class="funding-slider-container">
                         <input type="range" id="funding-slider" min="1000" max="1000000" step="1000" value="50000">
                         <div class="slider-values">
@@ -135,7 +167,8 @@
                         <i class="fas fa-hands-helping"></i>
                     </div>
                     <div class="info-text">
-                        <p>Collaboration accelerates impact and innovation, bringing diverse perspectives to solve complex sustainability challenges.</p>
+                        <p>Collaboration accelerates impact and innovation, bringing diverse perspectives to solve
+                            complex sustainability challenges.</p>
                     </div>
                 </div>
             </div>
@@ -175,6 +208,29 @@
         </div>
     </footer>
 
-    <script src="{% static "js/collab.js" %}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dp = document.querySelector(".profile");
+            const drop = document.querySelector(".dropdown");
+            const indp = document.querySelector(".profilein");
+            dp.addEventListener("click", function (e) {
+                e.stopPropagation(); // Prevent event bubbling
+                drop.classList.toggle("active");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (e) {
+                if (!drop.contains(e.target) && e.target !== dp) {
+                    drop.classList.remove("active");
+                }
+            });
+
+            indp.addEventListener("click", function () {
+                drop.classList.remove("active");
+            });
+
+        });
+    </script>
 </body>
+
 </html>
