@@ -24,15 +24,15 @@ def send_sms(to_number, message):
 @login_required
 def Dashboard(request):
     user_projects = UserProjects.objects.filter(user=request.user)
-    total_projects = user_projects.count()
-    total_funds_raised = user_projects.aggregate(Sum('funding_received'))['funding_received__sum'] or 0
-    tokens_earned = (total_funds_raised // 1000) + total_projects
+    total_projects = user_projects.count()    
+    total_funds_donated = UserProfile.objects.filter(user=request.user).aggregate(Sum('funds_donated'))['funds_donated__sum'] or 0
+    tokens_earned = (total_funds_donated // 1000) + total_projects
      
     return render(request, 'dashboard2.html', {
         'user': request.user,
         'user_projects': user_projects,
         'total_projects': total_projects,
-        'total_funds_raised': total_funds_raised,
+        'total_funds_donated': total_funds_donated,
         'tokens_earned': tokens_earned
     })
 
@@ -82,6 +82,11 @@ def Funds(request):
             
             project.funding_received += int(amt)
             project.save()
+            
+            profile=UserProfile.objects.get(user=request.user)
+            profile.funds_donated+=int(amt)
+            profile.save()
+            
             return redirect('sdgapp:funds')
         return redirect('sdgapp:funds')
 
