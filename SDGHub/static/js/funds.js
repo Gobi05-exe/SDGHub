@@ -5,15 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectNameInput = document.getElementById('project-name');
 
     // Simulate progress bar animation
-    function animateProgressBar() {
-        const progressBars = document.querySelectorAll('.progress-bar');
-        progressBars.forEach(bar => {
+ function animateProgressBar() {
+        document.querySelectorAll('.progress-bar').forEach(bar => {
             const fundingInfo = bar.closest('.project-details').querySelector('.funding-info');
-            const raised = parseInt(fundingInfo.querySelector('.raised').textContent.replace('$', '').replace(',', ''));
-            const goal = parseInt(fundingInfo.querySelector('.goal').textContent.replace('Goal: $', '').replace(',', ''));
-            
-            const percentage = Math.min((raised / goal) * 100, 100);
-            bar.style.width = `${percentage}%`;
+            if (fundingInfo) {
+                const raisedText = fundingInfo.querySelector('.raised')?.textContent.replace(/[^0-9]/g, '') || '0';
+                const goalText = fundingInfo.querySelector('.goal')?.textContent.replace(/[^0-9]/g, '') || '1';
+
+                const raised = parseInt(raisedText, 10);
+                const goal = parseInt(goalText, 10);
+
+                if (goal > 0) {
+                    const percentage = Math.min((raised / goal) * 100, 100);
+                    bar.style.width = `${percentage}%`;
+                    bar.setAttribute('aria-valuenow', percentage.toFixed(2));
+                }
+            }
         });
     }
 
@@ -41,9 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Form submission
     donationForm.addEventListener('submit', (e) => {
-        e.preventDefault();
         alert('Thank you for your support! Your donation is processing.');
-        donationForm.reset();
         paymentSection.style.display = 'none';
     });
 

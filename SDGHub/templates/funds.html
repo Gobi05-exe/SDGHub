@@ -88,23 +88,23 @@
 
         <section class="payment-portal" id="payment-section">
             <h2>Support Project</h2>
-            <form id="donation-form" method="POST">
+            <form id="donation-form" method="POST" action="{% url 'sdgapp:funds' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="project-name">Selected Project</label>
-                    <input type="text" id="project-name" readonly>
+                    <input type="text" name="project_name" id="project-name" readonly>
                 </div>
                 <div class="form-group">
                     <label for="donation-amount">Donation Amount ($)</label>
-                    <input type="number" id="donation-amount" min="10" step="5" required>
+                    <input type="number" name="amt" id="donation-amount" min="10" step="5" required>
                 </div>
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input type="text" id="name" required>
+                    <input type="text" name="full_name" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone number</label>
-                    <input type="tel" id="phone" required>
+                    <input type="tel" name="phone_number" id="phone" required>
                 </div>
                 <div class="payment-methods">
                     <h3>Payment Method</h3>
