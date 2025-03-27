@@ -37,7 +37,7 @@
         <div class="vidcont">
             <div class="video-container" class="video">
                 <video autoplay loop muted>
-                    <source src="{% static "media/1448735-uhd_2732_1440_24fps.mp4" %}" type="video/mp4">
+                    <source src="{% static "media/forests.mp4" %}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
@@ -48,13 +48,13 @@
             <a class="option" href="{% url 'sdgapp:collab' %}">Collab</a><br>
             <a class="option" href="{% url 'sdgapp:funds' %}">Funds</a><br>
             <a class="option" href="{% url 'sdgapp:settings' %}">Settings</a><br>
-            <a class="option" href="{% url 'sdgapp:dashboard' %}">Profile</a>
+            <a class="option" href="{% url 'sdgapp:dashboard' %}">Profile</a><br>
+            <a class="option" href="{% url 'explore' %}">Sign Out</a>
         </div>
 
     </div>
 
-    <div class="wrapper">
-        <h1 class="welcome">Welcome, {{ user.username }}</h1>
+    <div class="wrapper" style="background-image: url('{% static 'media/priscilla-du-preez-6gWMviz-vSo-unsplash.jpg' %}');">        <h1 class="welcome">Welcome, {{ user.username }}</h1>
         <div class="about">
             <div class="cards">
                 <div class="card">Total Projects: <span class="update totpro" data-val="{{ total_projects }}">0</span></div>
