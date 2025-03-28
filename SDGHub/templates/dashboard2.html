@@ -47,7 +47,7 @@
         <div class="options">
             <a class="option" href="{% url 'sdgapp:collab' %}">Collab</a><br>
             <a class="option" href="{% url 'sdgapp:funds' %}">Funds</a><br>
-            <a class="option" href="{% url 'sdgapp:settings' %}">Settings</a><br>
+            <a class="option" href="{% url 'sdgapp:settings' %}">Personal Info</a><br>
             <a class="option" href="{% url 'sdgapp:dashboard' %}">Profile</a><br>
             <a class="option" href="{% url 'explore' %}">Sign Out</a>
         </div>
@@ -58,7 +58,7 @@
         <div class="about">
             <div class="cards">
                 <div class="card">Total Projects: <span class="update totpro" data-val="{{ total_projects }}">0</span></div>
-                <div class="card">Total Funds Raised: ₹<span class="update funds" data-val="{{ total_funds_raised }}">000</span></div>
+                <div class="card">Total Funds Donated: ₹<span class="update funds" data-val="{{ total_funds_donated }}">000</span></div>
                 <div class="card">Tokens Earned: <span class="update tokens" data-val="{{ tokens_earned }}">0</span></div>
             </div>
         </div>
@@ -100,8 +100,10 @@
         
 
     </div>
+    
 
     <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="i4H52Q_nNu5GaFVxRo5A5";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
         document.addEventListener("DOMContentLoaded", function () {
             const dp = document.querySelector(".profile");
             const drop = document.querySelector(".dropdown");
@@ -181,6 +183,7 @@
 
 
     </script>
+
 </body>
 
 </html>

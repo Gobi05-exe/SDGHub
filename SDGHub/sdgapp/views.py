@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from sdgapp.models import UserProjects 
+from sdgapp.models import UserProjects, UserProfile 
 from django.db.models import Sum
 from django.conf import settings
 from twilio.rest import Client
@@ -9,7 +9,7 @@ from twilio.rest import Client
 def send_sms(to_number, message):
     print(message)
     account_sid = "ACb7ec158a691957aceea79283a918610a"
-    auth_token = "c124d447aba0b9bd60b2b2e3ab257e83"
+    auth_token = "3b0bbb01d503d5429b262b4b7b14fde1"
     client = Client(account_sid, auth_token)
 
     client.messages.create(
@@ -24,15 +24,15 @@ def send_sms(to_number, message):
 @login_required
 def Dashboard(request):
     user_projects = UserProjects.objects.filter(user=request.user)
-    total_projects = user_projects.count()
-    total_funds_raised = user_projects.aggregate(Sum('funding_received'))['funding_received__sum'] or 0
-    tokens_earned = (total_funds_raised // 1000) + total_projects
+    total_projects = user_projects.count()    
+    total_funds_donated = UserProfile.objects.filter(user=request.user).aggregate(Sum('funds_donated'))['funds_donated__sum'] or 0
+    tokens_earned = (total_funds_donated // 1000) + total_projects
      
     return render(request, 'dashboard2.html', {
         'user': request.user,
         'user_projects': user_projects,
         'total_projects': total_projects,
-        'total_funds_raised': total_funds_raised,
+        'total_funds_donated': total_funds_donated,
         'tokens_earned': tokens_earned
     })
 
@@ -82,6 +82,11 @@ def Funds(request):
             
             project.funding_received += int(amt)
             project.save()
+            
+            profile=UserProfile.objects.get(user=request.user)
+            profile.funds_donated+=int(amt)
+            profile.save()
+            
             return redirect('sdgapp:funds')
         return redirect('sdgapp:funds')
 
@@ -95,4 +100,35 @@ def Funds(request):
 
 @login_required
 def Settings(request):
-    return render(request, 'settings.html')
+    if request.method == "POST":
+        user = request.user
+        
+        dob = request.POST.get("dob")
+        bio = request.POST.get("bio")
+        city = request.POST.get("city")
+        country = request.POST.get("country")
+        
+        record, created = UserProfile.objects.get_or_create(
+            user=user,
+            defaults={'dob': dob, 'bio': bio, 'city':city, 'country':country }
+        )
+        
+        if not created:
+            record.dob=dob
+            record.bio=bio
+            record.city=city
+            record.country=country
+            record.save()
+        return redirect('sdgapp:settings')
+    
+    user_profile = UserProfile.objects.filter(user=request.user).first()
+
+    context = {
+        'dob': user_profile.dob.strftime('%Y-%m-%d') if user_profile and user_profile.dob else '',
+        'bio': user_profile.bio if user_profile else '',
+        'city': user_profile.city if user_profile else '',
+        'country': user_profile.country if user_profile else '',
+    }
+
+    
+    return render(request, 'settings.html', context)

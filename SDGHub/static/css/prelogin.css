@@ -11,14 +11,14 @@ body {
   margin: 0;
   padding: 0;
   background-color: #798262;
-  height: 100vh;
+  height: auto;
   overflow: hidden;
   color: #f5f5d3;
 }
 
 .center {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
