@@ -27,13 +27,14 @@ def Dashboard(request):
     total_projects = user_projects.count()    
     total_funds_donated = UserProfile.objects.filter(user=request.user).aggregate(Sum('funds_donated'))['funds_donated__sum'] or 0
     tokens_earned = (total_funds_donated // 1000) + total_projects
-     
+  
+
     return render(request, 'dashboard2.html', {
         'user': request.user,
         'user_projects': user_projects,
         'total_projects': total_projects,
         'total_funds_donated': total_funds_donated,
-        'tokens_earned': tokens_earned
+        'tokens_earned': tokens_earned,
     })
 
 @login_required

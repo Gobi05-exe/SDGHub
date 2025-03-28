@@ -20,7 +20,7 @@
     <nav>
         <ul>
             <li><img id="icon" src="{% static "media/leaf.png" %}"></li>
-            <li class="main"><a href="{% url "goals" %}"><span
+            <li class="main"><a href="{% url "sdgapp:dashboard" %}"><span
                         style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
         </ul>
         <div class="other_resources">
@@ -49,7 +49,7 @@
             <a class="option" href="{% url 'sdgapp:funds' %}">Funds</a><br>
             <a class="option" href="{% url 'sdgapp:settings' %}">Personal Info</a><br>
             <a class="option" href="{% url 'sdgapp:dashboard' %}">Profile</a><br>
-            <a class="option" href="{% url 'explore' %}">Sign Out</a>
+            <a class="option" href="{% url 'goals' %}">Sign Out</a>
 
         </div>
 
@@ -99,7 +99,7 @@
                     <input type="text" name="project_name" id="project-name" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="donation-amount">Donation Amount ($)</label>
+                    <label for="donation-amount">Donation Amount (₹)</label>
                     <input type="number" name="amt" id="donation-amount" min="10" step="5" required>
                 </div>
                 <div class="form-group">

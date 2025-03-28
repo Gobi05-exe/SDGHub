@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDGHub Collaboration Platform</title>
-    <link rel="stylesheet" href="{% static " css\collab.css" %}">
+    <link rel="stylesheet" href="{% static "css/collab.css" %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -18,20 +18,20 @@
         rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <script src="{% static " js/collab.js" %}"></script>
+    <script src="{% static "js/collab.js" %}"></script>
 </head>
 
 <body>
 
     <nav>
         <ul>
-            <li><img id="icon" src="{% static " media/leaf.png" %}"></li>
-            <li class="main"><a href="{% url " goals" %}"><span
+            <li><img id="icon" src="{% static "media/leaf.png" %}"></li>
+            <li class="main"><a href="{% url "sdgapp:dashboard" %}"><span
                         style="font-family: 'Alumni Sans Pinstripe', serif; font-weight: 600;">SDG</span>Hub</a></li>
         </ul>
         <div class="other_resources">
             <ul class="links">
-                <li><img class="profile" src="{% static " media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
+                <li><img class="profile" src="{% static "media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
                 </li>
 
             </ul>
@@ -39,11 +39,11 @@
     </nav>
 
     <div class="dropdown">
-        <img class="profilein" src="{% static " media/face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
+        <img class="profilein" src="{% static "media/face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
         <div class="vidcont">
             <div class="video-container" class="video">
                 <video autoplay loop muted>
-                    <source src="{% static " media/forests.mp4" %}" type="video/mp4">
+                    <source src="{% static "media/forests.mp4" %}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
@@ -63,7 +63,7 @@
 
     <div class="hero-section">
         <video autoplay loop muted playsinline class="hero-video">
-            <source src="collab.mp4" type="video/mp4">
+            <source src="{% static 'media/collab.mp4' %}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-content">
@@ -141,14 +141,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="funding-target">Funding Target ($)</label>
+                    <label for="funding-target">Funding Target (₹)</label>
                     <input type="number" name="funding_target" id="funding-target" placeholder="Enter target amount"
                         min="1" required>
                     <div class="funding-slider-container">
                         <input type="range" id="funding-slider" min="1000" max="1000000" step="1000" value="50000">
                         <div class="slider-values">
-                            <span>$1,000</span>
-                            <span>$1M</span>
+                            <span>₹1,000</span>
+                            <span>₹1M</span>
                         </div>
                     </div>
                 </div>
