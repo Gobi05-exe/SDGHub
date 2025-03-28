@@ -23,6 +23,7 @@ def send_sms(to_number, message):
     
 @login_required
 def Dashboard(request):
+    record, created = UserProfile.objects.get_or_create(user=request.user)
     user_projects = UserProjects.objects.filter(user=request.user)
     total_projects = user_projects.count()    
     total_funds_donated = UserProfile.objects.filter(user=request.user).aggregate(Sum('funds_donated'))['funds_donated__sum'] or 0

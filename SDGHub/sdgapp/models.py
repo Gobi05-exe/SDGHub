@@ -15,10 +15,10 @@ class UserProjects(models.Model):
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    dob = models.DateField()
-    bio = models.TextField()
-    city = models.TextField()
-    country = models.TextField()
+    dob = models.DateField(null=True,blank=True)
+    bio = models.TextField(default="")
+    city = models.TextField(default="")
+    country = models.TextField(default="")
     
     funds_donated = models.PositiveIntegerField(default=0)
 
