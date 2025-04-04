@@ -8,8 +8,8 @@ from twilio.rest import Client
 
 def send_sms(to_number, message):
     print(message)
-    account_sid = "ACb7ec158a691957aceea79283a918610a"
-    auth_token = "3b0bbb01d503d5429b262b4b7b14fde1"
+    account_sid = ""
+    auth_token = ""
     client = Client(account_sid, auth_token)
 
     client.messages.create(
