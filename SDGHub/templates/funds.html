@@ -18,9 +18,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{% static " css\funds.css" %}">
-    <script src="{% static " js\funds.js" %}"></script>
-    <link rel="stylesheet" href="{% static " css\goal17.css" %}">
+    <link rel="stylesheet" href="{% static "css\funds.css" %}">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=QbjHj_jFVf-Yh4174pK2Aj06651mvXidxEjgPRkSZy2-ekk9eheksbcJPMLaKEpS4RBCcYcbjtu0xEFAZpx3TnU-9eiDJbz3JGsf6J2XZqPJTN_apdyNkCVMu7H-fXBStV_NgqR7DYQqU-9T5O__w0TzboPJ-k7Y9X8SKuYu-6I" charset="UTF-8"></script><script src="{% static "js\funds.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css\goal17.css" %}">
+     <!-- <link rel="stylesheet" href="funds.css">
+     <link rel="stylesheet" href="goal17.css">
+     <script src="funds.js"></script> -->
+
 </head>
 
 <body>
@@ -34,7 +38,8 @@
         </ul>
         <div class="other_resources">
             <ul class="links">
-                <li><img class="profile" src="{% static "media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}"></li>
+                <li><img class="profile" src="{% static "media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
+                </li>
 
             </ul>
         </div>
@@ -63,9 +68,9 @@
 
     </div>
 
-    <header class="page-header"> 
+    <header class="page-header">
         <center>
-        <h1>Sustainable Impact Fund</h1>
+            <h1>Sustainable Impact Fund</h1>
         </center>
         <p>Empowering global change, one project at a time. Your contribution creates ripples of positive transformation
             across communities worldwide.</p>
@@ -73,16 +78,16 @@
 
     <main class="fundraising-container">
         <section class="project-selection">
-        <h2 class="section-title">Select a Project to Support</h2>
-        <div class="project-grid">
-            {% for project in all_projects %}
+            <h2 class="section-title">Select a Project to Support</h2>
+            <div class="project-grid">
+                {% for project in all_projects %}
                 <div class="project-card" data-project-id="{{ project.id }}">
                     <h3>{{ project.title }}</h3>
                     <p>{{ project.description }}</p>
                     <div class="project-details">
                         <div class="progress-container">
-                            <div class="progress-bar" id="project-{{ project.id }}-progress"> 
-        
+                            <div class="progress-bar" id="project-{{ project.id }}-progress">
+
                             </div>
                         </div>
                         <div class="funding-info">
@@ -92,11 +97,11 @@
                     </div>
                     <button class="select-project">Support This Project</button>
                 </div>
-            {% empty %}
+                {% empty %}
                 <p>No projects available.</p>
-            {% endfor %}
-        </div>
-    </section>
+                {% endfor %}
+            </div>
+        </section>
 
         <section class="payment-portal" id="payment-section">
             <h2>Support Project</h2>
@@ -132,7 +137,7 @@
     </main>
 
     <script>
-            (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="i4H52Q_nNu5GaFVxRo5A5";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "i4H52Q_nNu5GaFVxRo5A5"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
         document.addEventListener("DOMContentLoaded", function () {
             const dp = document.querySelector(".profile");
             const drop = document.querySelector(".dropdown");

@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poiret One', serif;
+    background-color: #f4f4f2;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #33352C;
+    padding: 10px 30px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #f5f5d3;
+}
+
+.links li a {
+    position: relative;
+    padding: 6px 0;
+}
+
+.links {
+    display: flex;
+    gap: 30px;
+    font-size: 16px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+#icon {
+    width: 30px;
+    margin-right: 15px;
+}
+
+.dropdown {
+    background-color: rgba(147, 147, 129, 0.95);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    display: flex;
+    text-align: center;
+    font-size: 3rem;
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.main {
+    font-size: 30px;
+    font-family: "Fleur De Leah", serif;
+}
+
+.page-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #798262;
+    background-size: 200% 200%;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    transform: rotate(-45deg);
+    z-index: 1;
+}
+
+.page-header h1 {
+    font-family: 'Fleur De Leah', serif;
+    font-size: 4rem;
+    color: #f5f5d3;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+}
+
+.page-header p {
+    color: #e0e6d8;
+    max-width: 700px;
+    margin: 15px auto;
+    position: relative;
+    z-index: 2;
+    font-size: 1.2rem;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.fundraising-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #33352C;
+    font-size: 2.5rem;
+}
+
+.project-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(85, 107, 47, 0.2);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e6f3e6;
+}
+
+.project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(85, 107, 47, 0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: brightness(0.9) saturate(1.2);
+}
+
+.project-card h3 {
+    padding: 15px;
+    text-align: center;
+    background-color: #33352C;
+    color: #f5f5d3;
+}
+
+.project-card p {
+    padding: 15px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.progress-container {
+    height: 15px;
+    background-color: #e6f3e6;
+    margin: 0 15px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #798262;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.funding-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.select-project {
+    width: 100%;
+    padding: 10px;
+    background-color: #33352C;
+    color: #f5f5d3;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.select-project:hover {
+    background-color: #6B8E23;
+    transform: translateY(-2px);
+}
+
+.payment-portal {
+    display: none;
+    max-width: 500px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(85, 107, 47, 0.2);
+    border: 1px solid #e6f3e6;
+}
+
+.payment-portal h2 {
+    text-align: center;
+    color: #556B2F;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c5e1c5;
+    border-radius: 6px;
+    background-color: #f9fff9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #6B8E23;
+    box-shadow: 0 0 0 2px rgba(107, 142, 35, 0.2);
+}
+
+.payment-methods {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.payment-methods h3 {
+    text-align: center;
+    color: #556B2F;
+    margin-bottom: 15px;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.payment-method {
+    flex-grow: 1;
+    background-color: #556B2F;
+    color: #f5f5d3;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.payment-method:hover {
+    background-color: #6B8E23;
+    transform: translateY(-3px);
+}
+
+.payment-method.selected {
+    background-color: #798262;
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.3);
+}
+
+.donate-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #556B2F;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.donate-button:hover {
+    background-color: #6B8E23;
+    transform: translateY(-2px);
+}
+
+/* nav bar */
+
+.other_resources .links li a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #f5f5d3;
+    transition: all 0.4s ease;
+}
+
+.other_resources .links li a:hover:before {
+    width: 100%;
+}
+
+.profile {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+
+
+.dropdown.active {
+    transform: translateX(0);
+}
+
+.profile {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+
+}
+
+nav {
+    position: relative;
+    z-index: 1001;
+}
+
+.about {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Soft shadow */
+    padding: 20px;
+    color: white;
+    width: 30%;
+    height: 50vh;
+    margin: 10px;
+}
+
+.profilein {
+    position: fixed;
+    top: 14px;
+    width: 30px;
+    text-align: end;
+    margin-left: 95.3vw;
+}
+
+.options {
+    margin-top: 11%;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.option:hover {
+    color: #5d5d50;
+    transition: 0.3s;
+    border-bottom: #5d5d50 1px solid;
+}
+
+.video-container {
+    width: 40vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.vidcont {
+    width: 90vw;
+    height: 90vh;
+    overflow: hidden;
+    margin: 30px;
+    border-radius: 10px;
+    margin-left: 100px;
+
+}

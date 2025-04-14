@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- this is the collaborators page! -->
+
 <head>
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDGHub Collaboration Platform</title>
     <link rel="stylesheet" href="{% static "css/collab.css" %}">
+        <link rel="stylesheet" href="{% static "css/goal17.css" %}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -16,7 +18,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=fcvGwOv0fQF3fFdXeMRiluuD7NZj_lqQcf6-z_StYKyojhvcaOcMK9O-RE1lfJb1w1N7mbMQuVoju9BB4cnOGgMjvH5pT_eTF7_MHcQpfr0yvVhphHdnp7h5q0oCYy5uBv0kiZMUU64RhjBM_w-FI7phQiBGEVv72_Z3uTOLwF4" charset="UTF-8"></script><script src="https://unpkg.com/scrollreveal"></script>
 
     <script src="{% static "js/collab.js" %}"></script>
 </head>
@@ -38,7 +41,7 @@
         </div>
     </nav>
 
-    <div class="dropdown">
+<div class="dropdown">
         <img class="profilein" src="{% static "media/face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
         <div class="vidcont">
             <div class="video-container" class="video">
@@ -53,9 +56,9 @@
         <div class="options">
             <a class="option" href="{% url 'sdgapp:collab' %}">Collab</a><br>
             <a class="option" href="{% url 'sdgapp:funds' %}">Funds</a><br>
-            <a class="option" href="{% url 'sdgapp:settings' %}">Settings</a><br>
+            <a class="option" href="{% url 'sdgapp:settings' %}">Personal Info</a><br>
             <a class="option" href="{% url 'sdgapp:dashboard' %}">Profile</a><br>
-            <a class="option" href="{% url 'explore' %}">Sign Out</a>
+            <a class="option" href="{% url 'goals' %}">Sign Out</a>
         </div>
 
     </div>
@@ -213,7 +216,7 @@
         (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="i4H52Q_nNu5GaFVxRo5A5";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
         </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
             const dp = document.querySelector(".profile");
             const drop = document.querySelector(".dropdown");
             const indp = document.querySelector(".profilein");

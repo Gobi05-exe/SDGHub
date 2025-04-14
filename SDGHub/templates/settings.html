@@ -8,12 +8,16 @@
     <title>Settings</title>
     <link rel="stylesheet" href="{% static "css/db.css" %}">
     <link rel="stylesheet" href="{% static "css/goal17.css" %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="{% static "css/settings.css" %}">
-    
-</head>
+
+
+
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iXdahf8Lha8UJTrDd0Ae31bNDzdjQcWSUSW76AD4lMl6Gn4AC5iUP50l_LLgIhyS2awXl40awuVZJanFs_mXDvvcvquY13DmJU1oOMDGx9oJSMrNiVguzxDrxd7CkviOVkwD2k4Zg7c4NXWDSlsJV5zF5gh-AMQM7UUp65EGOXo" charset="UTF-8"></script></head>
 
 <body>
     <nav>
@@ -25,12 +29,12 @@
         <div class="other_resources">
             <ul class="links">
                 <li><img class="profile" src="{% static "media/face_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}"></li>
-    
+
             </ul>
         </div>
     </nav>
 
-    <div class="dropdown">
+<div class="dropdown">
         <img class="profilein" src="{% static "media/face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
         <div class="vidcont">
             <div class="video-container" class="video">
@@ -38,19 +42,18 @@
                     <source src="{% static "media/forests.mp4" %}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-    
+
             </div>
         </div>
-    
+
         <div class="options">
             <a class="option" href="{% url 'sdgapp:collab' %}">Collab</a><br>
             <a class="option" href="{% url 'sdgapp:funds' %}">Funds</a><br>
             <a class="option" href="{% url 'sdgapp:settings' %}">Personal Info</a><br>
             <a class="option" href="{% url 'sdgapp:dashboard' %}">Profile</a><br>
             <a class="option" href="{% url 'goals' %}">Sign Out</a>
-
         </div>
-    
+
     </div>
 
     <div class="wrapper" style="background-image: url('{% static 'media/priscilla-du-preez-6gWMviz-vSo-unsplash.jpg' %}');">
@@ -59,22 +62,22 @@
         <div class="settings-container">
             <form class="settings-form" method="POST">
                 {% csrf_token %}
-                
+
                 <label for="dob">Date of Birth:</label>
                 <input type="date" id="dob" name="dob" value="{{ dob }}">
-            
+
                 <label for="bio">Bio:</label>
                 <textarea id="bio" name="bio" placeholder="Tell us about yourself">{{ bio }}</textarea>
-            
+
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" placeholder="Enter your city" value="{{ city }}">
-            
+
                 <label for="country">Country:</label>
                 <input type="text" id="country" name="country" placeholder="Enter your country" value="{{ country }}">
-            
+
                 <button type="submit">Save Changes</button>
             </form>
-            
+
         </div>
     </div>
 
@@ -90,32 +93,32 @@
 
             if (dob || bio || city || country) {
                 alert("Settings saved successfully!");
-                this.submit(); 
+                this.submit();
             } else {
                 alert("Please fill in at least one field before saving.");
             }
         });
-        document.addEventListener("DOMContentLoaded", function () {
-                const dp = document.querySelector(".profile");
-                const drop = document.querySelector(".dropdown");
-                const indp = document.querySelector(".profilein");
-                dp.addEventListener("click", function (e) {
-                    e.stopPropagation(); // Prevent event bubbling
-                    drop.classList.toggle("active");
-                });
-
-                // Close dropdown when clicking outside
-                document.addEventListener("click", function (e) {
-                    if (!drop.contains(e.target) && e.target !== dp) {
-                        drop.classList.remove("active");
-                    }
-                });
-
-                indp.addEventListener("click", function () {
-                    drop.classList.remove("active");
-                });
-
+document.addEventListener("DOMContentLoaded", function () {
+            const dp = document.querySelector(".profile");
+            const drop = document.querySelector(".dropdown");
+            const indp = document.querySelector(".profilein");
+            dp.addEventListener("click", function (e) {
+                e.stopPropagation(); // Prevent event bubbling
+                drop.classList.toggle("active");
             });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (e) {
+                if (!drop.contains(e.target) && e.target !== dp) {
+                    drop.classList.remove("active");
+                }
+            });
+
+            indp.addEventListener("click", function () {
+                drop.classList.remove("active");
+            });
+
+        });
     </script>
 
 </body>

@@ -8,12 +8,12 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="{% static "css\db.css" %}">
     <link rel="stylesheet" href="{% static "css\goal17.css" %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Passions+Conflict&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poiret+One&family=Alumni+Sans+Pinstripe:ital@0;1&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=3K0U6r9UE9KNdkBmNpgy1-N6jHmXedrWvWfHOwMm5Bl_Xc5sSnY30fApYbjE7voKesaCOQ9iuCZYzaGkxse97saAKnOyzIWKe99vGOZXA_7AXDrwtM8WC4ybMZvcYTiS65XsMCcia-qca4HEl3jvG15yg2Dlzwp3DacHfjCx3lA" charset="UTF-8"></script><script src="https://unpkg.com/scrollreveal"></script>
 
 </head>
 
@@ -32,7 +32,7 @@
         </div>
     </nav>
 
-    <div class="dropdown">
+<div class="dropdown">
         <img class="profilein" src="{% static "media/face_2_24dp_F5F5D3_FILL0_wght400_GRAD0_opsz24.svg" %}">
         <div class="vidcont">
             <div class="video-container" class="video">
@@ -62,23 +62,23 @@
                 <div class="card">Tokens Earned: <span class="update tokens" data-val="{{ tokens_earned }}">0</span></div>
             </div>
         </div>
-        
+
         <div class="about1">
             <h2 class="invi">Invitations</h2>
             <form class="notifs">
                 <div class="invite" id="invite1">
                     <label class="user">Username123</label>
-        
+
                     <input type="radio" name="invite1" value="accept" id="accept1">
                     <label for="accept1" class="custom-radio">Accept</label>
-        
+
                     <input type="radio" name="invite1" value="decline" id="decline1">
                     <label for="decline1" class="custom-radio">Decline</label>
                 </div>
             </form>
         </div>
 
-        
+
 
         <div class="projects">
             <h2>Your Projects</h2>
@@ -97,14 +97,14 @@
                 {% endfor %}
             </div>
         </div>
-        
+
 
     </div>
-    
+
 
     <script>
         (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="i4H52Q_nNu5GaFVxRo5A5";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-        document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
             const dp = document.querySelector(".profile");
             const drop = document.querySelector(".dropdown");
             const indp = document.querySelector(".profilein");
@@ -163,12 +163,12 @@
             let interval = 2000; // Animation duration
             let steps = 50; // Number of steps
             let duration = interval / steps;
-    
+
             valueDisplays.forEach((valueDisplay) => {
                 let startValue = 0;
                 let endValue = parseInt(valueDisplay.getAttribute("data-val"));
                 let increment = endValue / steps;
-    
+
                 let counter = setInterval(() => {
                     startValue += increment;
                     if (startValue >= endValue) {
