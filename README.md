@@ -62,7 +62,6 @@ The Sustainable Development Goals (SDGs) set by the United Nations require globa
 - Frontend: HTML, CSS, JavaScript (with animations and interactive UI)
 - Backend: Django (Python)
 - Database: Integrated with Django for managing users, projects, and partnerships
-- Payment Gateway: Supports multiple donation options
 
 ---
 
