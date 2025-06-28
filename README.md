@@ -19,13 +19,13 @@ The Sustainable Development Goals (SDGs) set by the United Nations require globa
 
 ## Key Features
 
-- **User Authentication**: Secure sign-up, login, password recovery, and profile management
-- **Interactive Dashboards**: Track projects, funding, and personal achievements
-- **Collaboration Tools**: Initiate projects, invite collaborators, manage partnerships
-- **Fundraising Module**: Support projects through donations with multiple payment options
-- **Explore Section**: Browse SDG-aligned projects and sustainability initiatives
-- **Personal Information Settings**: Users can manage personal details like bio, city, and country
-- **Responsive Design**: Accessible across devices with interactive UI elements and animations
+- **User Authentication**: Secure sign-up, login, password recovery, and profile management  
+- **Interactive Dashboards**: Track projects, funding, and personal achievements  
+- **Collaboration Tools**: Initiate projects, invite collaborators, manage partnerships  
+- **Fundraising Module**: Support projects through donations with multiple payment options  
+- **Explore Section**: Browse SDG-aligned projects and sustainability initiatives  
+- **Personal Information Settings**: Users can manage personal details like bio, city, and country  
+- **Responsive Design**: Accessible across devices with interactive UI elements and animations  
 
 ---
 
@@ -49,25 +49,35 @@ The Sustainable Development Goals (SDGs) set by the United Nations require globa
 
 ## Example User Actions
 
-- Create an account and join global sustainability efforts
-- Explore projects and discover initiatives aligned with your interests
-- Submit your project and invite collaborators
-- Track project progress and manage partnerships
-- Support projects through donations (credit card, PayPal, cryptocurrency)
+- Create an account and join global sustainability efforts  
+- Explore projects and discover initiatives aligned with your interests  
+- Submit your project and invite collaborators  
+- Track project progress and manage partnerships  
+- Support projects through donations (credit card, PayPal, cryptocurrency)  
 
 ---
 
 ## Technologies Used
 
-- Frontend: HTML, CSS, JavaScript (with animations and interactive UI)
-- Backend: Django (Python)
-- Database: Integrated with Django for managing users, projects, and partnerships
+- **Frontend**: HTML, CSS, JavaScript (with animations and interactive UI)  
+- **Backend**: Django (Python)  
+- **Database**: Integrated with Django for managing users, projects, and partnerships  
 
 ---
 
 ## Contribution
 
 Contributions are welcome to improve SDGHub and expand its impact. Reach out via the platform to propose collaborations or technical enhancements.
+
+---
+
+## Authors
+
+- [**Gobi**](https://github.com/Gobi05-exe) – *Backend Development*  
+- [**Sriya Nan**](https://github.com/SriyaNan) – *Frontend Development*  
+- [**Ananya K**](https://github.com/k-ananya05) – *Frontend Development*  
+
+Community contributions are encouraged to grow and enhance SDGHub.
 
 ---
 
