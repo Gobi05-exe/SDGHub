@@ -73,7 +73,7 @@ Contributions are welcome to improve SDGHub and expand its impact. Reach out via
 
 ## Authors
 
-- [**Gobi Elangovan**](https://github.com/Gobi05-exe) – *Backend Development*  
+- [**Gobi E**](https://github.com/Gobi05-exe) – *Backend Development*  
 - [**R Sriya Nandhini**](https://github.com/SriyaNan) – *Frontend Development*  
 - [**Ananyashrinidhi K**](https://github.com/k-ananya05) – *Frontend Development*  
 
